@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="main.css">
 <?php
 require_once dirname(__FILE__).'/config.php';
 

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div style="width:90%; margin: 2em auto;">
+    <div class="login">
 
 <form action="<?php print(_APP_ROOT); ?>/app/security/login.php" method="post" class="pure-form pure-form-stacked">
 	<legend>Logowanie</legend>
