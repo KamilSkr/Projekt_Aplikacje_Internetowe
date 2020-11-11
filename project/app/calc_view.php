@@ -1,6 +1,6 @@
 <?php
-//Tu już nie ładujemy konfiguracji - sam widok nie będzie już punktem wejścia do aplikacji.
-//Wszystkie żądania idą do kontrolera, a kontroler wywołuje skrypt widoku.
+//Tu juz nie ladujemy konfiguracji - sam widok nie bedzie juz punktem wejscia do aplikacji.
+//Wszystkie zadania ida do kontrolera, a kontroler wywoluje skrypt widoku.
 ?>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
@@ -21,7 +21,7 @@
 <form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-stacked">
 	<legend>Oblicz miesieczna rate kredytu</legend>
 	<fieldset>
-		<label for="id_x">Kwota pożyczki : </label>
+		<label for="id_x">Kwota pozyczki : </label>
 		<input id="id_x" type="text" name="x" value="<?php out($x) ?>" />
                 <label for="id_z">Na ile lat? : </label>
 		<input id="id_z" type="text" name="z" value="<?php out($z) ?>" />
@@ -32,7 +32,7 @@
 </form>	
 
 <?php
-//wyświeltenie listy błędów, jeśli istnieją
+//wyswieltenie listy bled�w, jesli istnieja
 if (isset($messages)) {
 	if (count ( $messages ) > 0) {
 		echo '<ol style="margin-top: 1em; padding: 1em 1em 1em 2em; border-radius: 0.5em; background-color: #f88; width:25em;">';

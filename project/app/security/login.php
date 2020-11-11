@@ -1,34 +1,34 @@
 <?php
 require_once dirname(__FILE__).'/../../config.php';
 
-//pobranie parametr贸w
+//pobranie parametr體
 function getParamsLogin(&$form){
 	$form['login'] = isset ($_REQUEST ['login']) ? $_REQUEST ['login'] : null;
 	$form['pass'] = isset ($_REQUEST ['pass']) ? $_REQUEST ['pass'] : null;
 }
 
-//walidacja parametr贸w z przygotowaniem zmiennych dla widoku
+//walidacja parametr體 z przygotowaniem zmiennych dla widoku
 function validateLogin(&$form,&$messages){
-	// sprawdzenie, czy parametry zosta艂y przekazane
+	// sprawdzenie, czy parametry zostaly przekazane
 	if ( ! (isset($form['login']) && isset($form['pass']))) {
-		//sytuacja wyst膮pi kiedy np. kontroler zostanie wywo艂any bezpo艣rednio - nie z formularza
+		//sytuacja wystapi kiedy np. kontroler zostanie wywolany bezposrednio - nie z formularza
 		return false;
 	}
 
-	// sprawdzenie, czy potrzebne warto艣ci zosta艂y przekazane
+	// sprawdzenie, czy potrzebne wartosci zostaly przekazane
 	if ( $form['login'] == "") {
 		$messages [] = 'Nie podano loginu';
 	}
 	if ( $form['pass'] == "") {
-		$messages [] = 'Nie podano has艂a';
+		$messages [] = 'Nie podano hasla';
 	}
 
-	//nie ma sensu walidowa膰 dalej, gdy brak parametr贸w
+	//nie ma sensu walidowac dalej, gdy brak parametr體
 	if (count ( $messages ) > 0) return false;
 
-	// sprawdzenie, czy dane logowania s膮 poprawne
-	// - takie informacje najcz臋艣ciej przechowuje si臋 w bazie danych
-	//   jednak na potrzeby przyk艂adu sprawdzamy bezpo艣rednio
+	// sprawdzenie, czy dane logowania sa poprawne
+	// - takie informacje najczesciej przechowuje sie w bazie danych
+	//   jednak na potrzeby przykladu sprawdzamy bezposrednio
 	if ($form['login'] == "admin" && $form['pass'] == "admin") {
 		session_start();
 		$_SESSION['role'] = 'admin';
@@ -40,7 +40,7 @@ function validateLogin(&$form,&$messages){
 		return true;
 	}
 	
-	$messages [] = 'Niepoprawny login lub has艂o';
+	$messages [] = 'Niepoprawny login lub haslo';
 	return false; 
 }
 
@@ -48,16 +48,16 @@ function validateLogin(&$form,&$messages){
 $form = array();
 $messages = array();
 
-// pobierz parametry i podejmij akcj臋
+// pobierz parametry i podejmij akcje
 getParamsLogin($form);
 
 if (!validateLogin($form,$messages)) {
-	//je艣li b艂膮d logowania to wy艣wietl formularz z tekstami z $messages
+	//jesli blad logowania to wyswietl formularz z tekstami z $messages
 	include _ROOT_PATH.'/app/security/login_view.php';
 } else { 
-	//ok przekieruj lub "forward" na stron臋 g艂贸wn膮
+	//ok przekieruj lub "forward" na strone gl體na
 	
-	//redirect - przegl膮darka dostanie ten adres do "przej艣cia" na niego (wys艂ania kolejnego 偶膮dania)
+	//redirect - przegladarka dostanie ten adres do "przejscia" na niego (wyslania kolejnego zadania)
 	header("Location: "._APP_URL);
 	
 	//"forward"

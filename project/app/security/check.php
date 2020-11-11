@@ -6,10 +6,10 @@ session_start();
 //pobranie roli
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
-//jeśli brak parametru (niezalogowanie) to idź na stronę logowania
+//jesli brak parametru (niezalogowanie) to idz na strone logowania
 if ( empty($role) ){
 	include _ROOT_PATH.'/app/security/login.php';
-	//zatrzymaj dalsze przetwarzanie skryptów
+	//zatrzymaj dalsze przetwarzanie skryptu
 	exit();
 }
-//jeśli ok to idź dalej
+//jesli ok to idz dalej

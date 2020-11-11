@@ -3,30 +3,30 @@ require_once dirname(__FILE__).'/../config.php';
 
 // KONTROLER strony kalkulatora
 
-// W kontrolerze niczego nie wysy艂a si臋 do klienta.
-// Wys艂aniem odpowiedzi zajmie si臋 odpowiedni widok.
+// W kontrolerze niczego nie wysyla sie do klienta.
+// Wyslaniem odpowiedzi zajmie sie odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
 
-//ochrona kontrolera - poni偶szy skrypt przerwie przetwarzanie w tym punkcie gdy u偶ytkownik jest niezalogowany
+//ochrona kontrolera - ponizszy skrypt przerwie przetwarzanie w tym punkcie gdy uzytkownik jest niezalogowany
 include _ROOT_PATH.'/app/security/check.php';
 
-//pobranie parametr贸w
+//pobranie parametr體
 function getParams(&$x,&$y,&$z){
 	$x = isset($_REQUEST['x']) ? $_REQUEST['x'] : null;
 	$y = isset($_REQUEST['y']) ? $_REQUEST['y'] : null;
 	$z = isset($_REQUEST['z']) ? $_REQUEST['z'] : null;	
 }
 
-//walidacja parametr贸w z przygotowaniem zmiennych dla widoku
+//walidacja parametr體 z przygotowaniem zmiennych dla widoku
 function validate(&$x,&$y,&$z,&$messages){
-	// sprawdzenie, czy parametry zosta艂y przekazane
+	// sprawdzenie, czy parametry zostaly przekazane
 	if ( ! (isset($x) && isset($y) && isset($z))) {
-		// sytuacja wyst膮pi kiedy np. kontroler zostanie wywo艂any bezpo艣rednio - nie z formularza
-		// teraz zak艂adamy, ze nie jest to b艂膮d. Po prostu nie wykonamy oblicze艅
+		// sytuacja wystapi kiedy np. kontroler zostanie wywolany bezposrednio - nie z formularza
+		// teraz zakladamy, ze nie jest to blad. Po prostu nie wykonamy obliczen
 		return false;
 	}
 
-	// sprawdzenie, czy potrzebne warto艣ci zosta艂y przekazane
+	// sprawdzenie, czy potrzebne wartosci zostaly przekazane
 	if ( $x == "") {
 		$messages [] = 'Nie podano liczby 1';
 	}
@@ -37,19 +37,19 @@ function validate(&$x,&$y,&$z,&$messages){
 		$messages [] = 'Nie podano liczby 2';
 	}
 
-	//nie ma sensu walidowa膰 dalej gdy brak parametr贸w
+	//nie ma sensu walidowac dalej gdy brak parametr體
 	if (count ( $messages ) != 0) return false;
 	
-	// sprawdzenie, czy $x i $y s膮 liczbami ca艂kowitymi
+	// sprawdzenie, czy $x i $y sa liczbami calkowitymi
 	if (! is_numeric( $x )) {
-		$messages [] = 'Pierwsza warto艣膰 nie jest liczb膮 ca艂kowit膮';
+		$messages [] = 'Pierwsza wartosc nie jest liczba calkowita';
 	}
 	
 	if (! is_numeric( $y )) {
-		$messages [] = 'Druga warto艣膰 nie jest liczb膮 ca艂kowit膮';
+		$messages [] = 'Druga wartosc nie jest liczba calkowita';
 	}
         if (! is_numeric( $z )) {
-		$messages [] = 'Druga warto艣膰 nie jest liczb膮 ca艂kowit膮';
+		$messages [] = 'Druga wartosc nie jest liczba calkowita';
 	}	
 
 	if (count ( $messages ) != 0) return false;
@@ -58,7 +58,7 @@ function validate(&$x,&$y,&$z,&$messages){
 
 function process(&$x,&$y,&$z,&$result){
 	
-	//konwersja parametr贸w na int
+	//konwersja parametr體 na int
 	$x = intval($x);
 	$y = intval($y);
         $z = intval($z);
@@ -77,13 +77,13 @@ $z = null;
 $result = null;
 $messages = array();
 
-//pobierz parametry i wykonaj zadanie je艣li wszystko w porz膮dku
+//pobierz parametry i wykonaj zadanie jesli wszystko w porzadku
 getParams($x,$y,$z);
-if ( validate($x,$y,$z,$messages) ) { // gdy brak b艂臋d贸w
+if ( validate($x,$y,$z,$messages) ) { // gdy brak bled體
 	process($x,$y,$z,$result);
 }
 
-// Wywo艂anie widoku z przekazaniem zmiennych
+// Wywolanie widoku z przekazaniem zmiennych
 // - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
-//   b臋d膮 dost臋pne w do艂膮czonym skrypcie
+//   beda dostepne w dolaczonym skrypcie
 include 'calc_view.php';

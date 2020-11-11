@@ -21,7 +21,7 @@
 </form>	
 
 <?php
-//wyświeltenie listy błędów, jeśli istnieją
+//wyswieltenie listy bled�w, jesli istnieja
 if (isset($messages)) {
 	if (count ( $messages ) > 0) {
 		echo '<ol style="padding: 10px 10px 10px 30px; border-radius: 5px; background-color: #f88; width:300px;">';

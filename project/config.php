@@ -1,4 +1,5 @@
 <?php
+
 define('_SERVER_NAME', 'localhost:80');
 define('_SERVER_URL', 'http://'._SERVER_NAME);
 define('_APP_ROOT', '/project');
