@@ -1,34 +1,34 @@
-<?php
+<?php //
 require_once dirname(__FILE__).'/../../config.php';
 
-//pobranie parametrów
+//pobranie parametrï¿½w
 function getParamsLogin(&$form){
 	$form['login'] = isset ($_REQUEST ['login']) ? $_REQUEST ['login'] : null;
 	$form['pass'] = isset ($_REQUEST ['pass']) ? $_REQUEST ['pass'] : null;
 }
 
-//walidacja parametrów z przygotowaniem zmiennych dla widoku
+//walidacja parametrï¿½w z przygotowaniem zmiennych dla widoku
 function validateLogin(&$form,&$messages){
-	// sprawdzenie, czy parametry zostaly przekazane
+	// sprawdzenie, czy parametry zostaï¿½y przekazane
 	if ( ! (isset($form['login']) && isset($form['pass']))) {
-		//sytuacja wystapi kiedy np. kontroler zostanie wywolany bezposrednio - nie z formularza
+		//sytuacja wystï¿½pi kiedy np. kontroler zostanie wywoï¿½any bezpoï¿½rednio - nie z formularza
 		return false;
 	}
 
-	// sprawdzenie, czy potrzebne wartosci zostaly przekazane
+	// sprawdzenie, czy potrzebne wartoï¿½ci zostaï¿½y przekazane
 	if ( $form['login'] == "") {
 		$messages [] = 'Nie podano loginu';
 	}
 	if ( $form['pass'] == "") {
-		$messages [] = 'Nie podano hasla';
+		$messages [] = 'Nie podano hasï¿½a';
 	}
 
-	//nie ma sensu walidowac dalej, gdy brak parametrów
+	//nie ma sensu walidowaï¿½ dalej, gdy brak parametrï¿½w
 	if (count ( $messages ) > 0) return false;
 
-	// sprawdzenie, czy dane logowania sa poprawne
-	// - takie informacje najczesciej przechowuje sie w bazie danych
-	//   jednak na potrzeby przykladu sprawdzamy bezposrednio
+	// sprawdzenie, czy dane logowania sï¿½ poprawne
+	// - takie informacje najczï¿½ciej przechowuje siï¿½ w bazie danych
+	//   jednak na potrzeby przykï¿½adu sprawdzamy bezpoï¿½rednio
 	if ($form['login'] == "admin" && $form['pass'] == "admin") {
 		session_start();
 		$_SESSION['role'] = 'admin';
@@ -40,7 +40,7 @@ function validateLogin(&$form,&$messages){
 		return true;
 	}
 	
-	$messages [] = 'Niepoprawny login lub haslo';
+	$messages [] = 'Niepoprawny login lub hasï¿½o';
 	return false; 
 }
 
@@ -48,16 +48,16 @@ function validateLogin(&$form,&$messages){
 $form = array();
 $messages = array();
 
-// pobierz parametry i podejmij akcje
+// pobierz parametry i podejmij akcjï¿½
 getParamsLogin($form);
 
 if (!validateLogin($form,$messages)) {
-	//jesli blad logowania to wyswietl formularz z tekstami z $messages
+	//jeï¿½li bï¿½ï¿½d logowania to wyï¿½wietl formularz z tekstami z $messages
 	include _ROOT_PATH.'/app/security/login_view.php';
 } else { 
-	//ok przekieruj lub "forward" na strone glówna
+	//ok przekieruj lub "forward" na stronï¿½ gï¿½ï¿½wnï¿½
 	
-	//redirect - przegladarka dostanie ten adres do "przejscia" na niego (wyslania kolejnego zadania)
+	//redirect - przeglï¿½darka dostanie ten adres do "przejï¿½cia" na niego (wysï¿½ania kolejnego ï¿½ï¿½dania)
 	header("Location: "._APP_URL);
 	
 	//"forward"
