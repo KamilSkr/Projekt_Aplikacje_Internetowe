@@ -33,10 +33,10 @@ function validate(&$x,&$y,&$z,&$msgs,&$hide_intro){
 		$msgs [] = 'Nie podano liczby 1';
 	}
 	if ( $y == "") {
-		$msgs [] = 'Nie podano liczby 2';
+		$msgs [] = 'Nie podano liczby 3';
 	}
         if ( $z == "") {
-		$msgs [] = 'Nie podano liczby 3';
+		$msgs [] = 'Nie podano liczby 2';
 	}
 
 	//nie ma sensu walidowa� dalej gdy brak parametr�w
