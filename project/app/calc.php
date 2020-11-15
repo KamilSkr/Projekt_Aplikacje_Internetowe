@@ -1,4 +1,6 @@
+
 <?php
+// KONTROLER strony kalkulatora
 require_once dirname(__FILE__).'/../config.php';
 
 // KONTROLER strony kalkulatora
@@ -18,42 +20,47 @@ function getParams(&$x,&$y,&$z){
 }
 
 //walidacja parametr�w z przygotowaniem zmiennych dla widoku
-function validate(&$x,&$y,&$z,&$messages){
+function validate(&$x,&$y,&$z,&$msgs,&$hide_intro){
 	// sprawdzenie, czy parametry zosta�y przekazane
 	if ( ! (isset($x) && isset($y) && isset($z))) {
 		// sytuacja wyst�pi kiedy np. kontroler zostanie wywo�any bezpo�rednio - nie z formularza
 		// teraz zak�adamy, ze nie jest to b��d. Po prostu nie wykonamy oblicze�
-		return false;
+		$hide_intro = true;
 	}
 
 	// sprawdzenie, czy potrzebne warto�ci zosta�y przekazane
 	if ( $x == "") {
-		$messages [] = 'Nie podano liczby 1';
+		$msgs [] = 'Nie podano liczby 1';
 	}
 	if ( $y == "") {
-		$messages [] = 'Nie podano liczby 2';
+		$msgs [] = 'Nie podano liczby 2';
 	}
         if ( $z == "") {
-		$messages [] = 'Nie podano liczby 2';
+		$msgs [] = 'Nie podano liczby 3';
 	}
 
 	//nie ma sensu walidowa� dalej gdy brak parametr�w
-	if (count ( $messages ) != 0) return false;
-	
-	// sprawdzenie, czy $x i $y s� liczbami ca�kowitymi
+	if (count($msgs) != 0) {
+        return false;
+    }
+
+    // sprawdzenie, czy $x i $y s� liczbami ca�kowitymi
 	if (! is_numeric( $x )) {
-		$messages [] = 'Pierwsza warto�� nie jest liczb� ca�kowit�';
+		$msgs [] = 'Pierwsza wartość nie jest liczbą całkowitą';
 	}
 	
 	if (! is_numeric( $y )) {
-		$messages [] = 'Druga warto�� nie jest liczb� ca�kowit�';
+		$msgs [] = 'Druga wartość nie jest liczbą całkowitą';
 	}
         if (! is_numeric( $z )) {
-		$messages [] = 'Druga warto�� nie jest liczb� ca�kowit�';
+		$msgs [] = 'Trzecia wartość nie jest liczbą całkowitą';
 	}	
 
-	if (count ( $messages ) != 0) return false;
-	else return true;
+	if (count($msgs) != 0) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function process(&$x,&$y,&$z,&$result){
@@ -76,15 +83,19 @@ $y = null;
 $z = null;
 $result = null;
 $messages = array();
+$hide_intro = false;
 
 //pobierz parametry i wykonaj zadanie je�li wszystko w porz�dku
 getParams($x,$y,$z);
-if ( validate($x,$y,$z,$messages) ) { // gdy brak b��d�w
+if ( validate($x,$y,$z,$messages, $hide_intro) ) { // gdy brak b��d�w
 	process($x,$y,$z,$result);
 }
 
 // Wywo�anie widoku z przekazaniem zmiennych
 // - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
 //   b�d� dost�pne w do��czonym skrypcie
+
+
+
 include 'calc_view.php';
 

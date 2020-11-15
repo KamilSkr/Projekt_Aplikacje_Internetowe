@@ -20,7 +20,7 @@ function validateLogin(&$form,&$messages){
 		$messages [] = 'Nie podano loginu';
 	}
 	if ( $form['pass'] == "") {
-		$messages [] = 'Nie podano has�a';
+		$messages [] = 'Nie podano hasła';
 	}
 
 	//nie ma sensu walidowa� dalej, gdy brak parametr�w

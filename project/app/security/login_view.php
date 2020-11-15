@@ -9,8 +9,8 @@
 		<title>Helios by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-                <link rel="stylesheet" href="app/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+                <link rel="stylesheet" href="http://localhost:80/project/app/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="app/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
@@ -61,9 +61,9 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.php">Home</a></li>
-								<li><a href="left-sidebar.html">Kalkulator Kredytowy</a></li>
-								<li><a href="right-sidebar.html">Github</a></li>
+								<li><a href="http://localhost:80/project/index.php">Home</a></li>
+								<li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
+								<li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git">Github</a></li>
 								<li><a href="no-sidebar.html">Kalkulator</a></li>
 							</ul>
 						</nav>
@@ -78,7 +78,7 @@
 								<!-- Contact -->
 									<section class="contact">
 										<ul class="icons">
-											<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+											<li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git" class="icon brands fa-github"><span class="label">Github</span></a></li>
 											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 										</ul>

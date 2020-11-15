@@ -3,6 +3,21 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+function scroll(e) {
+
+    var href = $(this).attr('href');
+
+    e.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $(href).offset().top
+    }, 800);
+
+    location.hash = href;
+
+};
+
+$('a[href^="#"]').click(scroll);
 
 (function($) {
 
