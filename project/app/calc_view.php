@@ -1,7 +1,4 @@
-<?php
-//Tu ju� nie �adujemy konfiguracji - sam widok nie b�dzie ju� punktem wej�cia do aplikacji.
-//Wszystkie ��dania id� do kontrolera, a kontroler wywo�uje skrypt widoku.
-?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -22,7 +19,7 @@
 									<li><a href="http://localhost:80/project/index.php">Home</a></li>
                                                                         <li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
                                                                         <li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git">Github</a></li>
-                                                                        <li><a href="no-sidebar.html">Kalkulator</a></li>
+                                                                        <li><a href="http://localhost:80/project/app/calc_1.php">Kalkulator</a></li>
 							
 							</ul>
 						</nav>
@@ -33,7 +30,7 @@
 							
 							<footer>
                                                                 <div style="width:90%; margin: 2em auto;">
-                                                                    <a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button" style=" position: relative; right:  100px;">Zwykły Kalkulator</a>
+                                                                    <a href="<?php print(_APP_ROOT); ?>/app/calc_1.php" class="pure-button" style=" position: relative; right:  100px;">Zwykły Kalkulator</a>
                                                                     <a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active" style=" position: relative; left: 50px;">Wyloguj</a>
                                                                 </div>
 
@@ -41,7 +38,7 @@
                                                     <div style="width:90%; margin: 2em auto;">
 
                                             <form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-stacked">
-                                                    <legend>Oblicz miesieczna rate kredytu</legend>
+                                                <legend class="title_menu">Oblicz miesieczna rate kredytu</legend>
                                                     <fieldset>
                                                         <label for="id_x" style="color: white;">Kwota pozyczki : </label>
                                                             <input id="id_x" type="text" name="x" value="<?php out($x) ?>" />
@@ -64,7 +61,7 @@
 				</div>
 
                         
-                        <div  id="one"class="messages">
+                        <div  id="one" class="messages">
 
                             <?php
 
@@ -96,11 +93,12 @@
                             ?>
                              <div class="wynik">
                             <?php if (isset($result)){ ?>
-                             <h4 id="one">Wynik: </h4>
+                             <h4 id="one">Rata miesieczna wynosi (zł): </h4>
                                     <p class="res">
                             <?php print($result); ?>
                                     </p>
                             <?php } ?>
+                                    
                          </div>
 
 </div>
