@@ -1,0 +1,15 @@
+<?php
+require_once dirname(__FILE__).'/../../config.php';
+//inicjacja mechanizmu sesji
+session_start();
+
+//pobranie roli
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+
+//jeœli brak parametru (niezalogowanie) to idŸ na strone logowania
+if ( empty($role) ){
+	include _ROOT_PATH.'/app/security/login.php';
+	//zatrzymaj dalsze przetwarzanie skryptÃ³w
+	exit();
+}
+//jeÅ›li ok to idÅº dalej
