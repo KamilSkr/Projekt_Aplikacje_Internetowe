@@ -24,7 +24,7 @@ include $conf->root_path.'/app/security/check.php';
 									<li><a href="http://localhost:80/project/index.php">Home</a></li>
                                                                         <li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
                                                                         <li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git">Github</a></li>
-                                                                        <li><a href="no-sidebar.html">Kalkulator</a></li>
+                                                                        <li><a href="http://localhost:80/project/index_1.php">Kalkulator</a></li>
 							
 							</ul>
                                                     <form class="pure-form pure-form-stacked" action="{$conf->app_url}/app/calc_1.php" method="post">

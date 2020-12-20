@@ -1,13 +1,22 @@
 <?php
-// W skrypcie definicji kontrolera nie trzeba dołączać żadnego skryptu inicjalizacji.
-// Konfiguracja, Messages i Smarty są dostępne za pomocą odpowiednich funkcji.
-// Kontroler ładuje tylko to z czego sam korzysta.
+// W skrypcie definicji kontrolera nie trzeba dołączać już niczego.
+// Kontroler wskazuje tylko za pomocą 'use' te klasy z których jawnie korzysta
+// (gdy korzysta niejawnie to nie musi - np używa obiektu zwracanego przez funkcję)
 
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+// Zarejestrowany autoloader klas załaduje odpowiedni plik automatycznie w momencie, gdy skrypt będzie go chciał użyć.
+// Jeśli nie wskaże się klasy za pomocą 'use', to PHP będzie zakładać, iż klasa znajduje się w bieżącej
+// przestrzeni nazw - tutaj jest to przestrzeń 'app\controllers'.
+
+// Przypominam, że tu również są dostępne globalne funkcje pomocnicze - o to nam właściwie chodziło
+
+namespace app\controllers;
+
+//zamieniamy zatem 'require' na 'use' wskazując jedynie przestrzeń nazw, w której znajduje się klasa
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
 
 /** Kontroler kalkulatora
-
+ * @author Przemysław Kudłacik
  *
  */
 class CalcCtrl {
@@ -122,6 +131,6 @@ class CalcCtrl {
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('CalcView.html'); // już nie podajemy pełnej ścieżki - foldery widoków są zdefiniowane przy ładowaniu Smarty
+		getSmarty()->display('CalcView.tpl'); // już nie podajemy pełnej ścieżki - foldery widoków są zdefiniowane przy ładowaniu Smarty
 	}
 }

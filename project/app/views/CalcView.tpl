@@ -1,14 +1,14 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 {* przy zdefiniowanych folderach nie trzeba już podawać pełnej ścieżki *}
 
-
+{block name=footer}przykładowa tresć stopki wpisana do szablonu głównego z szablonu kalkulatora{/block}
 
 {block name=content}
 
 <h3>Prosty kalkulator</h2>
 
 
-<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post" style="color: black;">
+<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post">
 	<fieldset>
 		<label for="x">Pierwsza liczba</label>
 		<input id="x" type="text" placeholder="wartość x" name="x" value="{$form->x}">

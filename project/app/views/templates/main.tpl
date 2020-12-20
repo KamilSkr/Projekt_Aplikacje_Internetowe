@@ -6,14 +6,14 @@
 	<meta name="description" content="{$page_description|default:'Opis domyślny'}">
 	<title>{$page_title|default:"Tytuł domyślny"}</title>
 	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-	<link rel="stylesheet" href="{$conf->app_url}/css/style.css">
-        <noscript><link rel="stylesheet" href="app/assets/css/noscript.css" /></noscript>
+	<link rel="stylesheet" href="{$conf->app_url}/css/style.css">	
+        <noscript><link rel="stylesheet" href="{$conf->app_url}/css/noscript.css" /></noscript>
 </head>
 <body>
 
 <div class="header">
-	
-        <nav id="nav">
+    
+    <nav id="nav">
 							<ul>
 									<li><a href="http://localhost:80/project/index.php">Home</a></li>
                                                                         <li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
@@ -22,8 +22,9 @@
 							
 							</ul>
 						</nav>
-        
-    <h1>Kalkulator</h1>
+    
+	<h1>{$page_title|default:"Tytuł domyślny"}</h1>
+	
 	
 </div>
 
@@ -41,13 +42,6 @@
 									</section>
 	
 </div>
-	<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="ssets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+
 </body>
 </html>

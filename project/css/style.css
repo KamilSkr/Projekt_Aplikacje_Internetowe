@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
-@import url("fontawesome_1-all.min.css");
+@import url("fontawesome-all.min.css");
 
 body{
 	width:90%;
@@ -42,7 +42,15 @@ fieldset
     left: 35%;
     width: 100px;
 }
-	.icon {
+#footer .contact {
+			text-align: center;
+		}
+
+			#footer .contact p {
+				text-align: center;
+				margin: 0 0 3em 0;
+			}
+.icon {
 		text-decoration: none;
 		text-decoration: none;
 	}
@@ -132,6 +140,38 @@ ul.icons {
 				ul.icons li a:hover {
 					color: #ef8376;
 				}
+                                ul.icons {
+		position: relative;
+		background: rgba(128, 128, 128, 0.05);
+		border-radius: 4em;
+		display: inline-block;
+		padding: 0.35em 0.75em 0.35em 0.75em;
+		font-size: 1.25em;
+		cursor: default;
+		list-style: none;
+	}
+
+		ul.icons li {
+			display: inline-block;
+			padding-left: 0;
+		}
+
+			ul.icons li a {
+				display: inline-block;
+				background: none;
+				width: 2.5em;
+				height: 2.5em;
+				line-height: 2.5em;
+				text-align: center;
+				border-radius: 100%;
+				border: 0;
+				color: inherit;
+			}
+
+				ul.icons li a:hover {
+					color: #ef8376;
+				}
+                                
 label
 {
     color: white;
@@ -169,6 +209,7 @@ label
 				border-top: solid 1px rgba(192, 192, 192, 0.35);
 				border-bottom: solid 1px rgba(192, 192, 192, 0.35);
 			}
+                        
 
 			#nav > ul:before {
 				left: 100%;
