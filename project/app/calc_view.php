@@ -19,7 +19,7 @@
 									<li><a href="http://localhost:80/project/index.php">Home</a></li>
                                                                         <li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
                                                                         <li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git">Github</a></li>
-                                                                        <li><a href="http://localhost:80/project/app/calc_1.php">Kalkulator</a></li>
+                                                                        <li><a href="http://localhost:80/project/index_1.php">Kalkulator</a></li>
 							
 							</ul>
 						</nav>
@@ -30,7 +30,7 @@
 							
 							<footer>
                                                                 <div style="width:90%; margin: 2em auto;">
-                                                                    <a href="<?php print(_APP_ROOT); ?>/app/calc_1.php" class="pure-button" style=" position: relative; right:  100px;">Zwykły Kalkulator</a>
+                                                                    <a href="<?php print(_APP_ROOT); ?>/index_1.php" class="pure-button" style=" position: relative; right:  100px;">Zwykły Kalkulator</a>
                                                                     <a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active" style=" position: relative; left: 50px;">Wyloguj</a>
                                                                 </div>
 
@@ -131,7 +131,7 @@
 					</div>
 				</div>
 
-		</div>
+		
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

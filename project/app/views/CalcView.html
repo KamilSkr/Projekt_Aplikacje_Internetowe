@@ -1,14 +1,14 @@
-{extends file="../templates/main.html"}
+{extends file="main.html"}
+{* przy zdefiniowanych folderach nie trzeba już podawać pełnej ścieżki *}
 
-{block name=footer}
 
-{/block}
 
 {block name=content}
+
 <h3>Prosty kalkulator</h2>
 
 
-<form class="pure-form pure-form-stacked" action="{$conf->app_url}/app/calc_1.php" method="post" style=" position: static; left: 35%;">
+<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post" style="color: black;">
 	<fieldset>
 		<label for="x">Pierwsza liczba</label>
 		<input id="x" type="text" placeholder="wartość x" name="x" value="{$form->x}">
@@ -28,7 +28,7 @@
 		<label for="y">Druga liczba</label>
 		<input id="y" type="text" placeholder="wartość y" name="y" value="{$form->y}">
 	</fieldset>
-	<button type="submit" class="pure-button pure-button-primary" style=" position: relative; left: 35%;">Oblicz</button>
+	<button type="submit" class="pure-button pure-button-primary">Oblicz</button>
 </form>
 
 <div class="messages">
@@ -63,6 +63,7 @@
 	{$res->result}
 	</p>
 {/if}
+
 </div>
 
 {/block}

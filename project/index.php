@@ -1,4 +1,4 @@
-<?php
+  <?php
 require_once dirname(__FILE__).'/config.php';
 
 //przekierowanie przeglądarki klienta (redirect)
