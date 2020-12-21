@@ -7,6 +7,7 @@ body{
         background-color: #1C0920;
 }
 
+
 .header
 {
    margin-top: 6em;
@@ -35,6 +36,26 @@ body{
 	padding: 1em 1em 1em 3em;
 	border-radius: 1em;
 	color: #222;
+}
+#id_login ,#id_pass
+{
+    position: relative;
+    left:30px;
+}
+#id_x ,#id_y 
+{
+    position: relative;
+    left:30px;
+}
+.pure-controls
+{
+    position: relative;
+    right: 75px;
+}
+.pure-button-primary
+{
+   position: relative;
+    right: 10px; 
 }
 fieldset
 {
@@ -176,6 +197,7 @@ label
 {
     color: white;
 }
+
 
 #nav {
 		position: absolute;

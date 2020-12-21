@@ -1,69 +1,50 @@
 {extends file="main.tpl"}
-{* przy zdefiniowanych folderach nie trzeba już podawać pełnej ścieżki *}
-
-{block name=footer}przykładowa tresć stopki wpisana do szablonu głównego z szablonu kalkulatora{/block}
 
 {block name=content}
 
-<h3>Prosty kalkulator</h2>
+<div class="pure-menu pure-menu-horizontal bottom-margin">
+    <a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link" style="color: white;">wyloguj</a>
+	<span style="float:right; color: white;">użytkownik: {$user->login}, rola: {$user->role}</span>
+</div>
 
-
-<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post">
+<form action="{$conf->action_url}calcCompute" method="post" class="pure-form pure-form-aligned bottom-margin">
+    <legend style="color: white;">Kalkulator</legend>
 	<fieldset>
-		<label for="x">Pierwsza liczba</label>
-		<input id="x" type="text" placeholder="wartość x" name="x" value="{$form->x}">
-		<label for="op">Operacja</label>
-		<select id="op" name="op">
-
-{if isset($res->op_name)}
-<option value="{$form->op}">ponownie: {$res->op_name}</option>
-<option value="" disabled="true">---</option>
-{/if}
-			<option value="plus">(+) dodaj</option>
-			<option value="minus">(-) odejmij </option>
-			<option value="times">(*) pomnóż</option>
-			<option value="div">(/) podziel</option>
-		</select>
-					
-		<label for="y">Druga liczba</label>
-		<input id="y" type="text" placeholder="wartość y" name="y" value="{$form->y}">
+        <div class="pure-control-group">
+			<label for="id_x">Liczba 1: </label>
+			<input id="id_x" type="text" name="x" value="{$form->x}" />
+		</div>
+        <div class="pure-control-group">
+			<label for="id_op">Operacja: </label>
+			<select name="op">
+				{if isset($res->op_name)}
+				<option value="{$form->op}">ponownie: {$res->op_name}</option>
+				<option value="" disabled="true">---</option>
+				{/if}
+				<option value="plus">+</option>
+				<option value="minus">-</option>
+				<option value="times">*</option>
+				{if $user->role == "admin"}
+				<option value="div">/</option>
+				{/if}
+			</select>
+		</div>
+        <div class="pure-control-group">
+			<label for="id_y">Liczba 2: </label>
+			<input id="id_y" type="text" name="y" value="{$form->y}" />
+		</div>
+		<div class="pure-controls">
+			<input type="submit" value="Oblicz" class="pure-button pure-button-primary"/>
+		</div>
 	</fieldset>
-	<button type="submit" class="pure-button pure-button-primary">Oblicz</button>
-</form>
+</form>	
 
-<div class="messages">
-
-{* wyświeltenie listy błędów, jeśli istnieją *}
-{if $msgs->isError()}
-	<h4>Wystąpiły błędy: </h4>
-	<ol class="err">
-	{foreach $msgs->getErrors() as $err}
-	{strip}
-		<li>{$err}</li>
-	{/strip}
-	{/foreach}
-	</ol>
-{/if}
-
-{* wyświeltenie listy informacji, jeśli istnieją *}
-{if $msgs->isInfo()}
-	<h4>Informacje: </h4>
-	<ol class="inf">
-	{foreach $msgs->getInfos() as $inf}
-	{strip}
-		<li>{$inf}</li>
-	{/strip}
-	{/foreach}
-	</ol>
-{/if}
+{include file='messages.tpl'}
 
 {if isset($res->result)}
-	<h4>Wynik</h4>
-	<p class="res">
-	{$res->result}
-	</p>
-{/if}
-
+<div class="messages info">
+	Wynik: {$res->result}
 </div>
+{/if}
 
 {/block}

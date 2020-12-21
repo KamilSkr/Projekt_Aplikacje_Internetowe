@@ -5,7 +5,7 @@ namespace core;
 /**
  * Description of ClassLoader
  *
- *
+ * @author Przemysław Kudłacik
  */
 class ClassLoader {
 

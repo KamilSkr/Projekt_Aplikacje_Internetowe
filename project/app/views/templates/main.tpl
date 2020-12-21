@@ -1,47 +1,14 @@
-<!doctype html>
-<html lang="pl">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="{$page_description|default:'Opis domyślny'}">
-	<title>{$page_title|default:"Tytuł domyślny"}</title>
+	<meta charset="utf-8" />
+	<title>{$page_title|default:"brak tytułu"}</title>
 	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-	<link rel="stylesheet" href="{$conf->app_url}/css/style.css">	
-        <noscript><link rel="stylesheet" href="{$conf->app_url}/css/noscript.css" /></noscript>
+	<link rel="stylesheet" type="text/css" href="{$conf->app_url}/css/style.css" />
 </head>
 <body>
-
-<div class="header">
-    
-    <nav id="nav">
-							<ul>
-									<li><a href="http://localhost:80/project/index.php">Home</a></li>
-                                                                        <li><a href="http://localhost:80/project/app/calc.php">Kalkulator Kredytowy</a></li>
-                                                                        <li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git">Github</a></li>
-                                                                        <li><a href="http://localhost:80/project/index_1.php">Kalkulator</a></li>
-							
-							</ul>
-						</nav>
-    
-	<h1>{$page_title|default:"Tytuł domyślny"}</h1>
-	
-	
-</div>
-
-<div class="content">
-{block name=content} Domyślna treść zawartości .... {/block}
-</div><!-- content -->
-
-<div class="footer">
-	<section class="contact">
-										<ul class="icons">
-											<li><a href="https://github.com/KamilSkr/Projekt_Aplikacje_Internetowe.git" class="icon brands fa-github"><span class="label">Github</span></a></li>
-											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                                                                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										</ul>
-									</section>
-	
-</div>
-
+	<div style="margin: 1em;">
+		{block name=content} Domyślna treść zawartości .... {/block}
+	</div>
 </body>
 </html>

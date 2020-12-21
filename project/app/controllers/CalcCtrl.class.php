@@ -94,16 +94,24 @@ class CalcCtrl {
 			//wykonanie operacji
 			switch ($this->form->op) {
 				case 'minus' :
-					$this->result->result = $this->form->x - $this->form->y;
-					$this->result->op_name = '-';
+					if (inRole('admin')) {
+						$this->result->result = $this->form->x - $this->form->y;
+						$this->result->op_name = '-';
+					} else {
+						getMessages()->addError('Tylko administrator może wykonać tę operację');
+					}
 					break;
 				case 'times' :
 					$this->result->result = $this->form->x * $this->form->y;
 					$this->result->op_name = '*';
 					break;
 				case 'div' :
-					$this->result->result = $this->form->x / $this->form->y;
-					$this->result->op_name = '/';
+					if (inRole('admin')) {
+						$this->result->result = $this->form->x / $this->form->y;
+						$this->result->op_name = '/';
+					} else {
+						getMessages()->addError('Tylko administrator może wykonać tę operację');
+					}
 					break;
 				default :
 					$this->result->result = $this->form->x + $this->form->y;
@@ -122,15 +130,14 @@ class CalcCtrl {
 	 * Wygenerowanie widoku
 	 */
 	public function generateView(){
-		//nie trzeba już tworzyć Smarty i przekazywać mu konfiguracji i messages
-		// - wszystko załatwia funkcja getSmarty()
-		
-		getSmarty()->assign('page_title','Kalkulator');
-		
-					
+
+		getSmarty()->assign('user',unserialize($_SESSION['user']));
+				
+		getSmarty()->assign('page_title','Super kalkulator - role');
+
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('CalcView.tpl'); // już nie podajemy pełnej ścieżki - foldery widoków są zdefiniowane przy ładowaniu Smarty
+		getSmarty()->display('CalcView.tpl');
 	}
 }

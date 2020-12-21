@@ -40,6 +40,10 @@ ol, ul, a {
 {
     margin: 1em auto; 
 }
+.text_logowania
+{
+    color: white;
+}
 
 blockquote, q {
 	quotes: none;
