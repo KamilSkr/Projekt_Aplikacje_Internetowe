@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Sty 2021, 19:31
+-- Czas generowania: 04 Sty 2021, 22:19
 -- Wersja serwera: 10.4.14-MariaDB
 -- Wersja PHP: 7.4.11
 
@@ -40,8 +40,8 @@ CREATE TABLE `sedzia` (
 --
 
 INSERT INTO `sedzia` (`id_sedzia`, `name`, `surname`, `age`, `experience`) VALUES
-(1, 'dsffsd', 'sfddsf', 33, 5),
-(2, 'safd', 'asf', 23, 21);
+(1, 'Paweł', 'Raczkowski', 37, 12),
+(2, 'Tomasz', 'Kwiatkowski', 42, 9);
 
 -- --------------------------------------------------------
 
@@ -62,11 +62,11 @@ CREATE TABLE `trenerzy` (
 --
 
 INSERT INTO `trenerzy` (`id_trenera`, `name`, `surname`, `age`, `club`) VALUES
-(2, 'Kamil', 'kaka', 44, 'fajny'),
-(5, 'mlody', 'wariat', 32, 'sosnowiec'),
-(6, 'duzo', 'malo', 12, 'jakis'),
-(8, 'Kami', 'sa', 33, 'vzxc'),
-(9, 'dbbs', 'sfbsd', 456, 'bfxbc');
+(2, 'Jurgen', 'Klop', 52, 'FC Liverpool'),
+(5, 'Maurizio', 'Sarri', 60, 'Juventus Turyn'),
+(6, 'Pep', 'Guardiola', 48, 'Manchester City'),
+(8, 'Erik', 'ten Hag', 49, 'Ajax Amsterdam'),
+(9, 'Mauricio', 'Pochettino', 47, 'Tottenham Hotspur');
 
 -- --------------------------------------------------------
 
@@ -88,11 +88,11 @@ CREATE TABLE `zawodnik` (
 --
 
 INSERT INTO `zawodnik` (`id_zawodnika`, `name`, `surname`, `club`, `position`, `date`) VALUES
-(5, 'dsc', 'cdwsc', 'dcs', 'cd', '1998-09-02'),
-(9, 'scas', 'cd', 'acac', 'adcad', '1998-09-06'),
-(10, 'dsvs', 'svd', 'vds', 'svd', '1999-08-08'),
-(11, 'dsvs', 'svd', 'vds', 'svd', '1999-08-08'),
-(13, 'dsvs', 'svd', 'vds', 'svd', '1999-08-08');
+(5, 'Kevin', 'De Bruyne', 'Manchester City', 'Pomocnik', '1991-06-28'),
+(9, 'Robert', 'Lewandowski', 'Bayern Monachium', 'Napastnik', '1988-08-21'),
+(10, 'Lionel', 'Messi', 'FC Barcelona', 'Napastnik', '1987-06-24'),
+(11, 'Cristiano', 'Ronaldo', 'Juventus Turyn', 'Napastnik', '1985-02-05'),
+(13, 'Virgil', 'van Dijk ', 'Liverpool FC', 'Obrońca', '1991-07-08');
 
 --
 -- Indeksy dla zrzutów tabel
