@@ -9,7 +9,7 @@ $conf->app_root = '/project_bd/public';   # project subfolder in domain (relativ
 # ---- Database config - values required by Medoo
 $conf->db_type = 'mysql';
 $conf->db_server = 'localhost';
-$conf->db_name = 'baza_pilkarska';
+$conf->db_name = 'magazyn';
 $conf->db_user = 'root';
 $conf->db_pass = '';
 $conf->db_charset = 'utf8';

@@ -4,30 +4,68 @@
 
 <div class="bottom-margin_2">
 <form action="{$conf->action_root}personSaves" method="post" class="pure-form pure-form-aligned">
-	<fieldset>
+{if \core\RoleUtils::inRole('admin')}	
+    <fieldset>
 		<legend>Dane osoby</legend>
-		<div class="pure-control-group">
-            <label for="name">Imię</label>
-            <input id="name" type="text" placeholder="Imię" name="name" value="{$form->name}">
+                <div class="pure-control-group">
+            <label for="do_wykonania">zadanie do wykonania</label>
+            <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}">
         </div>
 		<div class="pure-control-group">
-            <label for="surname">Nazwisko</label>
-            <input id="surname" type="text" placeholder="Nazwisko" name="surname" value="{$form->surname}">
+            <label for="stanowisko">stanowisko</label>
+            <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}">
         </div>
         <div class="pure-control-group">
-            <label for="age">Wiek</label>
-            <input id="age" type="text" placeholder="Wiek" name="age" value="{$form->age}">
+            <label for="status">status</label>
+            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}">
         </div>
-        <div class="pure-control-group">
-            <label for="experience">Doswiadczenie</label>
-            <input id="experience" type="text" placeholder="Doswiadczenie" name="experience" value="{$form->experience}">
-        </div>
-		<div class="pure-controls">
+        		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}personList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}centrum">Powrót</a>
 		</div>
 	</fieldset>
-    <input type="hidden" name="id_sedzia" value="{$form->id}">
+                 {else if \core\RoleUtils::inRole('employee')}
+                         <fieldset>
+		<legend>Dane osoby</legend>
+                <div class="pure-control-group">
+            <label for="do_wykonania">zadanie do wykonania</label>
+            <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}">
+        </div>
+		<div class="pure-control-group">
+            <label for="stanowisko">stanowisko</label>
+            <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}" readonly>
+        </div>
+        <div class="pure-control-group">
+            <label for="status">status</label>
+            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}" readonly>
+        </div>
+        		<div class="pure-controls">
+			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
+			<a class="pure-button button-secondary" href="{$conf->action_root}employee">Powrót</a>
+		</div>
+	</fieldset>
+                {else if \core\RoleUtils::inRole('user')}
+                    <fieldset>
+		<legend>Dane osoby</legend>
+                <div class="pure-control-group">
+            <label for="do_wykonania">zadanie do wykonania</label>
+            <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}" readonly>
+        </div>
+		<div class="pure-control-group">
+            <label for="stanowisko">stanowisko</label>
+            <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}" readonly>
+        </div>
+        <div class="pure-control-group">
+            <label for="status">status</label>
+            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}">
+        </div>
+        		<div class="pure-controls">
+			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
+			<a class="pure-button button-secondary" href="{$conf->action_root}User">Powrót</a>
+		</div>
+	</fieldset>
+                     {/if}
+    <input type="hidden" name="id_zadania" value="{$form->id}">
 </form>	
 </div>
 

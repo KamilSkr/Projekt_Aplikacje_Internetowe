@@ -7,7 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\Validator;
 use app\forms\PersonEditForm;
-
+//                         ---- admin ----
 class PersonEditCtrl {
 
     private $form; //dane formularza
@@ -20,11 +20,11 @@ class PersonEditCtrl {
     // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSave() {
         //0. Pobranie parametrów z walidacją
-        $this->form->id = ParamUtils::getFromRequest('id_trenera', true, 'Błędne wywołanie aplikacji');
+        $this->form->id = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
         $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
         $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
         $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
-        $this->form->club = ParamUtils::getFromRequest('club', true, 'Błędne wywołanie aplikacji');
+        $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -39,8 +39,8 @@ class PersonEditCtrl {
         if (empty(trim($this->form->age))) {
             Utils::addErrorMessage('Wprowadź wiek');
         }
-        if (empty(trim($this->form->club))) {
-            Utils::addErrorMessage('Wprowadź klub');
+        if (empty(trim($this->form->stanowisko))) {
+            Utils::addErrorMessage('Wprowadź stanowisko');
         }
 
         if (App::getMessages()->isError())
@@ -70,15 +70,15 @@ class PersonEditCtrl {
         if ($this->validateEdit()) {
             try {
                 // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("trenerzy", "*", [
-                    "id_trenera" => $this->form->id
+                $record = App::getDB()->get("pracownicy", "*", [
+                    "id_pracownika" => $this->form->id
                 ]);
                 // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->form->id = $record['id_trenera'];
+                $this->form->id = $record['id_pracownika'];
                 $this->form->name = $record['name'];
                 $this->form->surname = $record['surname'];
                 $this->form->age = $record['age'];
-                $this->form->club = $record['club'];
+                $this->form->stanowisko = $record['stanowisko'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -96,8 +96,8 @@ class PersonEditCtrl {
 
             try {
                 // 2. usunięcie rekordu
-                App::getDB()->delete("trenerzy", [
-                    "id_trenera" => $this->form->id
+                App::getDB()->delete("pracownicy", [
+                    "id_pracownika" => $this->form->id
                 ]);
                 Utils::addInfoMessage('Pomyślnie usunięto rekord');
             } catch (\PDOException $e) {
@@ -108,7 +108,7 @@ class PersonEditCtrl {
         }
 
         // 3. Przekierowanie na stronę listy osób
-        App::getRouter()->forwardTo('personList');
+        App::getRouter()->forwardTo('centrum');
     }
 
     public function action_personSave() {
@@ -121,13 +121,13 @@ class PersonEditCtrl {
                 //2.1 Nowy rekord
                 if ($this->form->id == '') {
                     //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("trenerzy");
+                    $count = App::getDB()->count("pracownicy");
                     if ($count <= 20) {
-                        App::getDB()->insert("trenerzy", [
+                        App::getDB()->insert("pracownicy", [
                             "name" => $this->form->name,
                             "surname" => $this->form->surname,
                             "age" => $this->form->age,
-                            "club" => $this->form->club
+                            "stanowisko" => $this->form->stanowisko
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -137,13 +137,13 @@ class PersonEditCtrl {
                     }
                 } else {
                     //2.2 Edycja rekordu o danym ID
-                    App::getDB()->update("trenerzy", [
+                    App::getDB()->update("pracownicy", [
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
                         "age" => $this->form->age,
-                        "club" => $this->form->club
+                        "stanowisko" => $this->form->stanowisko
                             ], [
-                        "id_trenera" => $this->form->id
+                        "id_pracownika" => $this->form->id
                     ]);
                 }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
@@ -154,7 +154,7 @@ class PersonEditCtrl {
             }
 
             // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('personList');
+            App::getRouter()->forwardTo('centrum');
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
             $this->generateView();
@@ -168,7 +168,7 @@ class PersonEditCtrl {
     
 //    -------------------------------------------
     
-//    Zawodnik
+//    kierownik
     
     
     
@@ -180,41 +180,26 @@ class PersonEditCtrl {
     // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSavez() {
         //0. Pobranie parametrów z walidacją
-        $this->form->id = ParamUtils::getFromRequest('id_zawodnika', true, 'Błędne wywołanie aplikacji');
-        $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
-        $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
-        $this->form->position= ParamUtils::getFromRequest('position', true, 'Błędne wywołanie aplikacji');
-        $this->form->club = ParamUtils::getFromRequest('club', true, 'Błędne wywołanie aplikacji');
-        $this->form->date = ParamUtils::getFromRequest('date', true, 'Błędne wywołanie aplikacji');
+        $this->form->id = ParamUtils::getFromRequest('id_towaru', true, 'Błędne wywołanie aplikacji');
+        $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
+        $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
+        $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
 
         // 1. sprawdzenie czy wartości wymagane nie są puste
-        if (empty(trim($this->form->name))) {
-            Utils::addErrorMessage('Wprowadź imię');
+        if (empty(trim($this->form->nazwa))) {
+            Utils::addErrorMessage('Wprowadź nazwe');
         }
-        if (empty(trim($this->form->surname))) {
-            Utils::addErrorMessage('Wprowadź nazwisko');
+        if (empty(trim($this->form->ilosc))) {
+            Utils::addErrorMessage('Wprowadź ilosc');
         }
-        if (empty(trim($this->form->position))) {
-            Utils::addErrorMessage('Wprowadź pozycje');
-        }
-        if (empty(trim($this->form->club))) {
-            Utils::addErrorMessage('Wprowadź klub');
-        }
-        if (empty(trim($this->form->date))) {
-            Utils::addErrorMessage('Wprowadź date');
+        if (empty(trim($this->form->stan))) {
+            Utils::addErrorMessage('Wprowadź stan');
         }
         if (App::getMessages()->isError())
             return false;
-
-        // 2. sprawdzenie poprawności przekazanych parametrów
-
-        $d = \DateTime::createFromFormat('Y-m-d', $this->form->date);
-        if ($d === false) {
-            Utils::addErrorMessage('Zły format daty. Przykład: 2015-12-20');
-        }
 
         return !App::getMessages()->isError();
     }
@@ -237,16 +222,14 @@ class PersonEditCtrl {
         if ($this->validateEditz()) {
             try {
                 // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("zawodnik", "*", [
-                    "id_zawodnika" => $this->form->id
+                $record = App::getDB()->get("towar", "*", [
+                    "id_towaru" => $this->form->id
                 ]);
                 // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->form->id = $record['id_zawodnika'];
-                $this->form->name = $record['name'];
-                $this->form->surname = $record['surname'];
-                $this->form->club = $record['club'];
-                $this->form->position = $record['position'];
-                $this->form->date = $record['date'];
+                $this->form->id = $record['id_towaru'];
+                $this->form->nazwa = $record['nazwa'];
+                $this->form->ilosc = $record['ilosc'];
+                $this->form->stan = $record['stan'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -264,8 +247,8 @@ class PersonEditCtrl {
 
             try {
                 // 2. usunięcie rekordu
-                App::getDB()->delete("zawodnik", [
-                    "id_zawodnika" => $this->form->id
+                App::getDB()->delete("towar", [
+                    "id_towaru" => $this->form->id
                 ]);
                 Utils::addInfoMessage('Pomyślnie usunięto rekord');
             } catch (\PDOException $e) {
@@ -276,7 +259,7 @@ class PersonEditCtrl {
         }
 
         // 3. Przekierowanie na stronę listy osób
-        App::getRouter()->forwardTo('personList');
+        App::getRouter()->forwardTo('centrum');
     }
 
     public function action_personSavez() {
@@ -289,14 +272,12 @@ class PersonEditCtrl {
                 //2.1 Nowy rekord
                 if ($this->form->id == '') {
                     //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("zawodnik");
+                    $count = App::getDB()->count("towar");
                     if ($count <= 20) {
-                        App::getDB()->insert("zawodnik", [
-                            "name" => $this->form->name,
-                            "surname" => $this->form->surname,
-                            "club" => $this->form->club,
-                            "position" => $this->form->position,
-                            "date" => $this->form->date
+                        App::getDB()->insert("towar", [
+                            "nazwa" => $this->form->nazwa,
+                            "ilosc" => $this->form->ilosc,
+                            "stan" => $this->form->stan
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -306,14 +287,12 @@ class PersonEditCtrl {
                     }
                 } else {
                     //2.2 Edycja rekordu o danym ID
-                    App::getDB()->update("zawodnik", [
-                        "name" => $this->form->name,
-                        "surname" => $this->form->surname,
-                        "club" => $this->form->club,
-                        "position" => $this->form->position,
-                        "date" => $this->form->date
+                    App::getDB()->update("towar", [
+                        "nazwa" => $this->form->nazwa,
+                        "ilosc" => $this->form->ilosc,
+                        "stan" => $this->form->stan
                             ], [
-                        "id_zawodnika" => $this->form->id
+                        "id_towaru" => $this->form->id
                     ]);
                 }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
@@ -324,7 +303,7 @@ class PersonEditCtrl {
             }
 
             // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('personList');
+            App::getRouter()->forwardTo('centrum');
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
             $this->generateViewz();
@@ -348,27 +327,23 @@ class PersonEditCtrl {
     // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateSaves() {
         //0. Pobranie parametrów z walidacją
-        $this->form->id = ParamUtils::getFromRequest('id_sedzia', true, 'Błędne wywołanie aplikacji');
-        $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
-        $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
-        $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
-        $this->form->experience = ParamUtils::getFromRequest('experience', true, 'Błędne wywołanie aplikacji');
+        $this->form->id = ParamUtils::getFromRequest('id_zadania', true, 'Błędne wywołanie aplikacji');
+        $this->form->do_wykonania = ParamUtils::getFromRequest('do_wykonania', true, 'Błędne wywołanie aplikacji');
+        $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
+        $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
 
         // 1. sprawdzenie czy wartości wymagane nie są puste
-        if (empty(trim($this->form->name))) {
-            Utils::addErrorMessage('Wprowadź imię');
+        if (empty(trim($this->form->do_wykonania))) {
+            Utils::addErrorMessage('Wprowadź zadanie');
         }
-        if (empty(trim($this->form->surname))) {
-            Utils::addErrorMessage('Wprowadź nazwisko');
+        if (empty(trim($this->form->stanowisko))) {
+            Utils::addErrorMessage('Wprowadź stanowisko');
         }
-        if (empty(trim($this->form->age))) {
-            Utils::addErrorMessage('Wprowadź wiek');
-        }
-        if (empty(trim($this->form->experience))) {
-            Utils::addErrorMessage('Doswiadczenie (w latach)');
+        if (empty(trim($this->form->status))) {
+            Utils::addErrorMessage('Wprowadź status');
         }
 
         if (App::getMessages()->isError())
@@ -396,15 +371,14 @@ class PersonEditCtrl {
         if ($this->validateEdits()) {
             try {
                 // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("sedzia", "*", [
-                    "id_sedzia" => $this->form->id
+                $record = App::getDB()->get("zadania", "*", [
+                    "id_zadania" => $this->form->id
                 ]);
                 // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->form->id = $record['id_sedzia'];
-                $this->form->name = $record['name'];
-                $this->form->surname = $record['surname'];
-                $this->form->age = $record['age'];
-                $this->form->experience = $record['experience'];
+                $this->form->id = $record['id_zadania'];
+                $this->form->do_wykonania = $record['do_wykonania'];
+                $this->form->stanowisko = $record['stanowisko'];
+                $this->form->status = $record['status'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -422,8 +396,8 @@ class PersonEditCtrl {
 
             try {
                 // 2. usunięcie rekordu
-                App::getDB()->delete("sedzia", [
-                    "id_sedzia" => $this->form->id
+                App::getDB()->delete("zadania", [
+                    "id_zadania" => $this->form->id
                 ]);
                 Utils::addInfoMessage('Pomyślnie usunięto rekord');
             } catch (\PDOException $e) {
@@ -434,7 +408,7 @@ class PersonEditCtrl {
         }
 
         // 3. Przekierowanie na stronę listy osób
-        App::getRouter()->forwardTo('personList');
+        App::getRouter()->forwardTo('centrum');
     }
 
     public function action_personSaves() {
@@ -447,13 +421,12 @@ class PersonEditCtrl {
                 //2.1 Nowy rekord
                 if ($this->form->id == '') {
                     //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("sedzia");
+                    $count = App::getDB()->count("zadania");
                     if ($count <= 20) {
-                        App::getDB()->insert("sedzia", [
-                            "name" => $this->form->name,
-                            "surname" => $this->form->surname,
-                            "age" => $this->form->age,
-                            "experience" => $this->form->experience
+                        App::getDB()->insert("zadania", [
+                            "do_wykonania" => $this->form->do_wykonania,
+                            "stanowisko" => $this->form->stanowisko,
+                            "status" => $this->form->status
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -463,13 +436,12 @@ class PersonEditCtrl {
                     }
                 } else {
                     //2.2 Edycja rekordu o danym ID
-                    App::getDB()->update("sedzia", [
-                        "name" => $this->form->name,
-                        "surname" => $this->form->surname,
-                        "age" => $this->form->age,
-                        "experience" => $this->form->experience
+                    App::getDB()->update("zadania", [
+                        "do_wykonania" => $this->form->do_wykonania,
+                        "stanowisko" => $this->form->stanowisko,
+                        "status" => $this->form->status
                             ], [
-                        "id_sedzia" => $this->form->id
+                        "id_zadania" => $this->form->id
                     ]);
                 }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
@@ -480,7 +452,7 @@ class PersonEditCtrl {
             }
 
             // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('personList');
+            App::getRouter()->forwardTo('centrum');
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
             $this->generateViews();

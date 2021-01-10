@@ -140,7 +140,7 @@
                                 
 .pure-table
 {
-    color: white;
+    color: black;
 }
 .bottom-margin_1 , .bottom-margin_2 , .bottom-margin
 {
@@ -150,8 +150,4 @@
 {
     margin-top: 10em;
     margin-left: 25%;
-}
-body
-{
-    background: #1C0920;
 }

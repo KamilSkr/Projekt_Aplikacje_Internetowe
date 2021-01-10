@@ -11,4 +11,10 @@ class PersonEditForm {
         public $date;
         public $position;
         public $experience;
+        public $stanowisko;
+        public $status;
+        public $do_wykonania;
+        public $nazwa;
+        public $ilosc;
+        public $stan;
 }

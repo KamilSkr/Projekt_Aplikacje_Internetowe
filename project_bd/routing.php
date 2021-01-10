@@ -3,28 +3,31 @@
 use core\App;
 use core\Utils;
 
-App::getRouter()->setDefaultRoute('personList'); // akcja/ścieżka domyślna
+App::getRouter()->setDefaultRoute('login'); // akcja/ścieżka domyślna
 App::getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
 
 Utils::addRoute('personList',    'PersonListCtrl');
+Utils::addRoute('centrum',    'PersonAdmin');
+Utils::addRoute('employee',    'PersonEmp');
+Utils::addRoute('User',    'PersonUser');
 Utils::addRoute('loginShow',     'LoginCtrl');
 Utils::addRoute('login',         'LoginCtrl');
 Utils::addRoute('logout',        'LoginCtrl');
-Utils::addRoute('personNew',     'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personEdit',    'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personSave',    'PersonEditCtrl',	['user','admin']);
+Utils::addRoute('personNew',     'PersonEditCtrl',	['employee','admin']);
+Utils::addRoute('personEdit',    'PersonEditCtrl',	['user','employee','admin']);
+Utils::addRoute('personSave',    'PersonEditCtrl',	['user','employee','admin']);
 Utils::addRoute('personDelete',  'PersonEditCtrl',	['admin']);
 
-//------- zawodnik -----------
 
-Utils::addRoute('personNewz',     'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personEditz',    'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personSavez',    'PersonEditCtrl',	['user','admin']);
+
+Utils::addRoute('personNewz',     'PersonEditCtrl',	['employee','admin']);
+Utils::addRoute('personEditz',    'PersonEditCtrl',	['user','employee','admin']);
+Utils::addRoute('personSavez',    'PersonEditCtrl',	['user','employee','admin']);
 Utils::addRoute('personDeletez',  'PersonEditCtrl',	['admin']);
 
-//------------ sedzia ------------
 
-Utils::addRoute('personNewss',     'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personEdits',    'PersonEditCtrl',	['user','admin']);
-Utils::addRoute('personSaves',    'PersonEditCtrl',	['user','admin']);
+
+Utils::addRoute('personNewss',     'PersonEditCtrl',	['employee','admin']);
+Utils::addRoute('personEdits',    'PersonEditCtrl',	['user','employee','admin']);
+Utils::addRoute('personSaves',    'PersonEditCtrl',	['user','employee','admin']);
 Utils::addRoute('personDeletes',  'PersonEditCtrl',	['admin']);

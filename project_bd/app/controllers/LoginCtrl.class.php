@@ -41,9 +41,14 @@ class LoginCtrl {
         // (takie informacje najczęściej przechowuje się w bazie danych)
         if ($this->form->login == "admin" && $this->form->pass == "admin") {
             RoleUtils::addRole('admin');
+            App::getRouter()->redirectTo("centrum");
         } else if ($this->form->login == "user" && $this->form->pass == "user") {
             RoleUtils::addRole('user');
-        } else {
+            App::getRouter()->redirectTo("User");
+        } else if ($this->form->login == "employee" && $this->form->pass == "employee") {
+            RoleUtils::addRole('employee');
+            App::getRouter()->redirectTo("employee");
+        }else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
         }
 
@@ -58,7 +63,7 @@ class LoginCtrl {
         if ($this->validate()) {
             //zalogowany => przekieruj na główną akcję (z przekazaniem messages przez sesję)
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
-            App::getRouter()->redirectTo("personList");
+            App::getRouter()->redirectTo("centrum");
         } else {
             //niezalogowany => pozostań na stronie logowania
             $this->generateView();

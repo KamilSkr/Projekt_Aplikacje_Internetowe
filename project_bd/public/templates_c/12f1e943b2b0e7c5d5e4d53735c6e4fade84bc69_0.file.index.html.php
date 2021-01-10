@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-02 16:42:37
-  from "D:\XAMPP\htdocs\php_09_bd\app\views\PersonList.tpl" */
+/* Smarty version 3.1.30, created on 2021-01-08 23:30:10
+  from "D:\XAMPP\htdocs\project_bd\app\views\templates\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ff0946d0888a6_50654446',
+  'unifunc' => 'content_5ff8dcf2b2fd73_38622848',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '1c7ac74280763340ea1342ced3146727728c9193' => 
+    '12f1e943b2b0e7c5d5e4d53735c6e4fade84bc69' => 
     array (
-      0 => 'D:\\XAMPP\\htdocs\\php_09_bd\\app\\views\\PersonList.tpl',
-      1 => 1609602154,
+      0 => 'D:\\XAMPP\\htdocs\\project_bd\\app\\views\\templates\\index.html',
+      1 => 1610145010,
       2 => 'file',
     ),
   ),
@@ -21,32 +21,50 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_5ff0946d0888a6_50654446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ff8dcf2b2fd73_38622848 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13231593725ff0946cf12710_54114455', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19292750355ff8dcf2a72972_50827770', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12164198195ff0946d087e62_39439261', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6909060485ff8dcf2b2e205_06717480', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_13231593725ff0946cf12710_54114455 extends Smarty_Internal_Block
+class Block_19292750355ff8dcf2a72972_50827770 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-
-<div class="bottom-margin">
+ <header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">MAGAZYN</h1>
+				<p class="tagline">APLIKACJA DO KOMUNIKACJI I ORGANIZACJI PRACY</p>
+				<p><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+personList" class="btn btn-default btn-lg" role="button">Lista</a> 
+                                    <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout" class="btn btn-action btn-lg" role="button">Wyloguj</a></p>
+                                    <?php } else { ?>
+                                    <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+loginShow" class="btn btn-action btn-lg" role="button">Zaloguj</a></p>
+                                    <?php }?>
+			</div>
+		</div>
+	</header>
+<div class="jumbotron top-space">
+		<div class="container">                        	
+<div class="bottom-margin ">
 <form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 personList">
 	<legend>Opcje wyszukiwania</legend>
@@ -63,7 +81,7 @@ personList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_12164198195ff0946d087e62_39439261 extends Smarty_Internal_Block
+class Block_6909060485ff8dcf2b2e205_06717480 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -190,6 +208,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 </tbody>
 </table>
+
+                </div>
+</div>
 
 <?php
 }
