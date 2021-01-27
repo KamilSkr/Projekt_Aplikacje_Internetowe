@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-25 19:03:24
+/* Smarty version 3.1.30, created on 2021-01-27 23:04:48
   from "D:\XAMPP\htdocs\project_bd_2\app\views\PersonEdits.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_600f07ec8e1165_59469861',
+  'unifunc' => 'content_6011e380c57133_93743983',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a80c9ae14bba47dbaf28c34fca7705f32df27941' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\PersonEdits.tpl',
-      1 => 1611518793,
+      1 => 1611785088,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_600f07ec8e1165_59469861 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6011e380c57133_93743983 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_858498329600f07ec8dfe15_98930642', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15160625876011e380c53435_51783252', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_858498329600f07ec8dfe15_98930642 extends Smarty_Internal_Block
+class Block_15160625876011e380c53435_51783252 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -50,6 +50,11 @@ personSaves" method="post" class="pure-form pure-form-aligned">
                 <div class="pure-control-group">
             <label for="do_wykonania">zadanie do wykonania</label>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->do_wykonania;?>
+">
+        </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
 ">
         </div>
 		<div class="pure-control-group">
@@ -76,6 +81,11 @@ centrum">Powrót</a>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->do_wykonania;?>
 ">
         </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
+">
+        </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
             <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->stanowisko;?>
@@ -99,6 +109,11 @@ employee">Powrót</a>
             <label for="do_wykonania">zadanie do wykonania</label>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->do_wykonania;?>
 " >
+        </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
+" readonly>
         </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>

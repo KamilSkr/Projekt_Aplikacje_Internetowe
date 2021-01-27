@@ -36,10 +36,11 @@
     <table id="tab_people" class="pure-table pure-table-bordered" style="margin-top: 2em;">
 <thead>
 	<tr>
-		<th>imię</th>
-		<th>nazwisko</th>
-		<th>wiek</th>
-                <th>klub</th>
+                <th>Numer ID</th>
+		<th>Imię</th>
+		<th>Nazwisko</th>
+		<th>Wiek</th>
+                <th>Stanowisko</th>
 		
 	</tr>
 </thead>
@@ -47,7 +48,8 @@
 {foreach $pracownicy as $p}
 {strip}
 	<tr>
-		<td>{$p["name"]}</td>
+                <th>{$p["id_pracownika"]}</th>
+                <td>{$p["name"]}</td>
 		<td>{$p["surname"]}</td>
 		<td>{$p["age"]}</td>
                 <td>{$p["stanowisko"]}</td>
@@ -69,8 +71,9 @@
 <thead>
 	<tr>
 		<th>Nazwa</th>
-		<th>ilosc</th>
-		<th>stan</th>
+		<th>Ilosc</th>
+		<th>Stan</th>
+		<th>Nr ID zamawiającego towar</th>                
                 <td>Opcje</td>
 	</tr>
 </thead>
@@ -81,6 +84,7 @@
 		<td>{$p["nazwa"]}</td>
 		<td>{$p["ilosc"]}</td>
                 <td>{$p["stan"]}</td>
+                <td>{$p["id_pracownika"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}personEditz/{$p['id_towaru']}">Edytuj</a>		
 		</td>
@@ -97,9 +101,10 @@
 <table id="tab_people_2" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
-		<th>zadania do wykonania</th>
-		<th>stanowisko</th>
-		<th>status</th>
+		<th>Zadania do wykonania</th>
+                <td>Pracownik</td>
+		<th>Stanowisko</th>
+		<th>Status</th>
                 <td>Opcje</td>
 	</tr>
 </thead>
@@ -108,6 +113,7 @@
 {strip}
 	<tr>
 		<td>{$p["do_wykonania"]}</td>
+                <td>{$p["id_pracownika"]}</td>
 		<td>{$p["stanowisko"]}</td>
 		<td>{$p["status"]}</td>
 		<td>

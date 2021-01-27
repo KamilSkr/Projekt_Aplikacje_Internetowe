@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-25 20:10:11
+/* Smarty version 3.1.30, created on 2021-01-27 22:00:42
   from "D:\XAMPP\htdocs\project_bd_2\app\views\centrum.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_600f17930cd489_13117939',
+  'unifunc' => 'content_6011d47a3efb89_49167122',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95a72e0c5e952adf94245bdb94aeda83f8f8621a' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\centrum.tpl',
-      1 => 1611601810,
+      1 => 1611781241,
       2 => 'file',
     ),
   ),
@@ -21,26 +21,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_600f17930cd489_13117939 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6011d47a3efb89_49167122 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_521426092600f17930c8e12_89152781', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17391505706011d47a3ec5b5_53107234', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1111629853600f17930cc5b7_39914131', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5052267036011d47a3ee359_59961526', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_521426092600f17930c8e12_89152781 extends Smarty_Internal_Block
+class Block_17391505706011d47a3ec5b5_53107234 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -107,11 +107,12 @@ personNew">+ Nowy Pracownik</a>
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
-		<th>imię</th>
-		<th>nazwisko</th>
-		<th>wiek</th>
-                <th>stanowisko</th>
-		<th>opcje</th>
+                <td>Numer ID</td>
+		<th>Imię</th>
+		<th>Nazwisko</th>
+		<th>Wiek</th>
+                <th>Stanowisko</th>
+		<th>Opcje</th>
 	</tr>
 </thead>
 <tbody>
@@ -120,7 +121,8 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 ?>
-<tr><td><?php echo $_smarty_tpl->tpl_vars['p']->value["name"];?>
+<tr><td><?php echo $_smarty_tpl->tpl_vars['p']->value["id_pracownika"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["name"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["surname"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["age"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["stanowisko"];?>
@@ -160,10 +162,11 @@ personNewz">+ Nowy Towar</a>
 <table id="tab_people_1" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
-		<th>nazwa</th>
-		<th>ilosc</th>
-		<th>stan</th>
-		<th>opcje</th>
+		<th>Nazwa</th>
+		<th>Ilosc</th>
+		<th>Stan</th>
+                <td>Zamówił sprzedawca o nr ID:</td>
+		<th>Opcje</th>
 	</tr>
 </thead>
 <tbody>
@@ -175,6 +178,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 <tr><td><?php echo $_smarty_tpl->tpl_vars['p']->value["nazwa"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["ilosc"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["stan"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["id_pracownika"];?>
 </td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 personEditz/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_towaru'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
@@ -211,9 +215,10 @@ personNewss">+ Nowe zadania do wykonania</a>
 <thead>
 	<tr>
 		<th>Zadania do wykonania</th>
-		<th>stanowisko</th>
-		<th>status</th>
-		<th>opcje</th>
+                <th>Pracownik</th>
+		<th>Stanowisko</th>
+		<th>Status</th>
+		<th>Opcje</th>
 	</tr>
 </thead>
 <tbody>
@@ -223,6 +228,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 ?>
 <tr><td><?php echo $_smarty_tpl->tpl_vars['p']->value["do_wykonania"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["id_pracownika"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["stanowisko"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["status"];?>
 </td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
@@ -259,7 +265,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_1111629853600f17930cc5b7_39914131 extends Smarty_Internal_Block
+class Block_5052267036011d47a3ee359_59961526 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>

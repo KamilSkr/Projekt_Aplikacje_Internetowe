@@ -197,6 +197,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -222,6 +223,7 @@ class PersonEditCtrl {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
         //z widoku listy osób (parametr jest wymagany)
         $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
 
@@ -243,6 +245,7 @@ class PersonEditCtrl {
                 $this->form->nazwa = $record['nazwa'];
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
+                $this->form->id_p = $record['id_pracownika'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -296,7 +299,8 @@ class PersonEditCtrl {
                         App::getDB()->insert("towar", [
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
-                            "stan" => $this->form->stan
+                            "stan" => $this->form->stan,
+                            "id_pracownika" => $this->form->id_p
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -309,7 +313,8 @@ class PersonEditCtrl {
                     App::getDB()->update("towar", [
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
-                        "stan" => $this->form->stan
+                        "stan" => $this->form->stan,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_towaru" => $this->form->id
                     ]);
@@ -356,6 +361,7 @@ class PersonEditCtrl {
         $this->form->do_wykonania = ParamUtils::getFromRequest('do_wykonania', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
         $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -383,6 +389,7 @@ class PersonEditCtrl {
         //pobierz parametry na potrzeby wyswietlenia danych do edycji
         //z widoku listy osób (parametr jest wymagany)
         $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
 
@@ -404,6 +411,7 @@ class PersonEditCtrl {
                 $this->form->do_wykonania = $record['do_wykonania'];
                 $this->form->stanowisko = $record['stanowisko'];
                 $this->form->status = $record['status'];
+                $this->form->id_p = $record['id_pracownika'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -457,7 +465,8 @@ class PersonEditCtrl {
                         App::getDB()->insert("zadania", [
                             "do_wykonania" => $this->form->do_wykonania,
                             "stanowisko" => $this->form->stanowisko,
-                            "status" => $this->form->status
+                            "status" => $this->form->status,
+                            "id_pracownika" => $this->form->id_p
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -470,7 +479,8 @@ class PersonEditCtrl {
                     App::getDB()->update("zadania", [
                         "do_wykonania" => $this->form->do_wykonania,
                         "stanowisko" => $this->form->stanowisko,
-                        "status" => $this->form->status
+                        "status" => $this->form->status,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_zadania" => $this->form->id
                     ]);
@@ -691,6 +701,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -734,6 +745,7 @@ class PersonEditCtrl {
                 $this->form->nazwa = $record['nazwa'];
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
+                $this->form->id_p = $record['id_pracownika'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -787,6 +799,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("towar", [
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
+                            "id_pracownika" => $this->form->id_p,
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -799,7 +812,8 @@ class PersonEditCtrl {
                     App::getDB()->update("towar", [
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
-                        "stan" => $this->form->stan
+                        "stan" => $this->form->stan,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_towaru" => $this->form->id
                     ]);
@@ -846,6 +860,7 @@ class PersonEditCtrl {
         $this->form->do_wykonania = ParamUtils::getFromRequest('do_wykonania', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
         $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -891,6 +906,7 @@ class PersonEditCtrl {
                 $this->form->do_wykonania = $record['do_wykonania'];
                 $this->form->stanowisko = $record['stanowisko'];
                 $this->form->status = $record['status'];
+                $this->form->id_p = $record['id_pracownika'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -944,6 +960,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("zadania", [
                             "do_wykonania" => $this->form->do_wykonania,
                             "stanowisko" => $this->form->stanowisko,
+                            "id_pracownika" => $this->form->id_p,
 
                         ]);
                     } else { //za dużo rekordów
@@ -957,7 +974,8 @@ class PersonEditCtrl {
                     App::getDB()->update("zadania", [
                         "do_wykonania" => $this->form->do_wykonania,
                         "stanowisko" => $this->form->stanowisko,
-                        "status" => $this->form->status
+                        "status" => $this->form->status,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_zadania" => $this->form->id
                     ]);
@@ -1163,7 +1181,7 @@ class PersonEditCtrl {
     
 //    -------------------------------------------
     
-//    kierownik
+//    user
     
     
     
@@ -1179,6 +1197,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -1225,6 +1244,8 @@ class PersonEditCtrl {
                 $this->form->nazwa = $record['nazwa'];
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
+                $this->form->ilosc = $record['ilosc'];
+                $this->form->id_p = $record['id_pracownika'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -1278,7 +1299,8 @@ class PersonEditCtrl {
                         App::getDB()->insert("towar", [
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
-                            "stan" => $this->form->stan
+                            "stan" => $this->form->stan,
+                            "id_pracownika" => $this->form->id_p
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -1291,7 +1313,8 @@ class PersonEditCtrl {
                     App::getDB()->update("towar", [
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
-                        "stan" => $this->form->stan
+                        "stan" => $this->form->stan,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_towaru" => $this->form->id
                     ]);
@@ -1338,6 +1361,7 @@ class PersonEditCtrl {
         $this->form->do_wykonania = ParamUtils::getFromRequest('do_wykonania', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
         $this->form->status = ParamUtils::getFromRequest('status', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -1386,6 +1410,8 @@ class PersonEditCtrl {
                 $this->form->do_wykonania = $record['do_wykonania'];
                 $this->form->stanowisko = $record['stanowisko'];
                 $this->form->status = $record['status'];
+                $this->form->id_p = $record['id_pracownika'];
+                
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -1439,7 +1465,8 @@ class PersonEditCtrl {
                         App::getDB()->insert("zadania", [
                             "do_wykonania" => $this->form->do_wykonania,
                             "stanowisko" => $this->form->stanowisko,
-                            "status" => $this->form->status
+                            "status" => $this->form->status,
+                            "id_pracownika" => $this->form->id_p
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -1452,7 +1479,8 @@ class PersonEditCtrl {
                     App::getDB()->update("zadania", [
                         "do_wykonania" => $this->form->do_wykonania,
                         "stanowisko" => $this->form->stanowisko,
-                        "status" => $this->form->status
+                        "status" => $this->form->status,
+                        "id_pracownika" => $this->form->id_p
                             ], [
                         "id_zadania" => $this->form->id
                     ]);

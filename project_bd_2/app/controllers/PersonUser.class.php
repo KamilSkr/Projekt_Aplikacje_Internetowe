@@ -102,6 +102,7 @@ class PersonUser {
         try {
             $this->recordsz = App::getDB()->select("towar", [
                 "id_towaru",
+                "id_pracownika",
                 "nazwa",
                 "ilosc",
                 "stan",
@@ -128,6 +129,7 @@ class PersonUser {
             $this->records_s = App::getDB()->select("zadania", [
                 "id_zadania",
                 "do_wykonania",
+                "id_pracownika",
                 "stanowisko",
                 "status",
                     ], $where);

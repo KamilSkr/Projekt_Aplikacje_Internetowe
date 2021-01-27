@@ -37,19 +37,21 @@
 <table id="tab_people_1" class="pure-table pure-table-bordered" style="margin-top: 2em;" >
 <thead>
 	<tr>
-		<th>nazwa</th>
-		<th>ilosc</th>
-		<th>stan</th>
-		<th>opcje</th>
+                <th>Nazwa</th>
+		<th>Ilosc</th>
+		<th>Stan</th>
+                <td>Zamówił sprzedawca o nr ID:</td>
+		<th>Opcje</th>
 	</tr>
 </thead>
 <tbody>
 {foreach $towar as $p}
 {strip}
 	<tr>
-		<td>{$p["nazwa"]}</td>
+                <td>{$p["nazwa"]}</td>
 		<td>{$p["ilosc"]}</td>
 		<td>{$p["stan"]}</td>
+                <td>{$p["id_pracownika"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}personEditz/{$p['id_towaru']}">Edytuj</a>
 			&nbsp;
@@ -71,9 +73,10 @@
 <thead>
 	<tr>
 		<th>Zadania do wykonania</th>
-		<th>stanowisko</th>
-		<th>status</th>
-		<th>opcje</th>
+                <th>Pracownik</th>
+		<th>Stanowisko</th>
+		<th>Status</th>
+		<th>Opcje</th>
 	</tr>
 </thead>
 <tbody>
@@ -81,6 +84,7 @@
 {strip}
 	<tr>
 		<td>{$p["do_wykonania"]}</td>
+                <td>{$p["id_pracownika"]}</td>
 		<td>{$p["stanowisko"]}</td>
 		<td>{$p["status"]}</td>
 		<td>

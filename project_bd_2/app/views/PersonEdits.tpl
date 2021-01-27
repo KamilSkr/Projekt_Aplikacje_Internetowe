@@ -11,6 +11,10 @@
             <label for="do_wykonania">zadanie do wykonania</label>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}">
         </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="{$form->id_p}">
+        </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
             <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}">
@@ -31,6 +35,10 @@
             <label for="do_wykonania">zadanie do wykonania</label>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}">
         </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="{$form->id_p}">
+        </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
             <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}" >
@@ -50,6 +58,10 @@
                 <div class="pure-control-group">
             <label for="do_wykonania">zadanie do wykonania</label>
             <input id="do_wykonania" type="text" placeholder="zadanie do wykonania" name="do_wykonania" value="{$form->do_wykonania}" >
+        </div>
+        <div class="pure-control-group">
+            <label for="id_pracownika">Pracownik</label>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="{$form->id_p}" readonly>
         </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>

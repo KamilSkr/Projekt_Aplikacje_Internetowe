@@ -85,7 +85,7 @@ class PersonEmp {
                 Utils::addErrorMessage($e->getMessage());
         }
         
-//        ----------- zawodnik ---------------
+//        -----------  ---------------
 
         
         $num_paramsz = sizeof($search_paramsz);
@@ -101,6 +101,7 @@ class PersonEmp {
         try {
             $this->recordsz = App::getDB()->select("towar", [
                 "id_towaru",
+                "id_pracownika",
                 "nazwa",
                 "ilosc",
                 "stan",
@@ -111,7 +112,7 @@ class PersonEmp {
                 Utils::addErrorMessage($e->getMessage());
         }
         
-//        --------------sedzia -------------
+//        -------------- -------------
         
         $num_params_s = sizeof($search_params_s);
         if ($num_params_s > 1) {
@@ -126,6 +127,7 @@ class PersonEmp {
         try {
             $this->records_s = App::getDB()->select("zadania", [
                 "id_zadania",
+                "id_pracownika",
                 "do_wykonania",
                 "stanowisko",
                 "status",
