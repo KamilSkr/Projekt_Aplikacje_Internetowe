@@ -197,7 +197,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
-        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_z = ParamUtils::getFromRequest('id_zamawiajacego', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -245,7 +245,7 @@ class PersonEditCtrl {
                 $this->form->nazwa = $record['nazwa'];
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
-                $this->form->id_p = $record['id_pracownika'];
+                $this->form->id_z = $record['id_zamawiajacego'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -300,7 +300,7 @@ class PersonEditCtrl {
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
                             "stan" => $this->form->stan,
-                            "id_pracownika" => $this->form->id_p
+                            "id_zamawiajacego" => $this->form->id_z
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -314,7 +314,7 @@ class PersonEditCtrl {
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
                         "stan" => $this->form->stan,
-                        "id_pracownika" => $this->form->id_p
+                        "id_zamawiajacego" => $this->form->id_z
                             ], [
                         "id_towaru" => $this->form->id
                     ]);
@@ -530,6 +530,7 @@ class PersonEditCtrl {
         $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
         $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
+        
 
         if (App::getMessages()->isError())
             return false;
@@ -701,7 +702,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
-        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_z = ParamUtils::getFromRequest('id_zamawiajacego', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -745,7 +746,7 @@ class PersonEditCtrl {
                 $this->form->nazwa = $record['nazwa'];
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
-                $this->form->id_p = $record['id_pracownika'];
+                $this->form->id_z = $record['id_zamawiajacego'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -799,7 +800,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("towar", [
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
-                            "id_pracownika" => $this->form->id_p,
+                            "id_zamawiajacego" => $this->form->id_z,
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -813,7 +814,7 @@ class PersonEditCtrl {
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
                         "stan" => $this->form->stan,
-                        "id_pracownika" => $this->form->id_p
+                        "id_zamawiajacego" => $this->form->id_z
                             ], [
                         "id_towaru" => $this->form->id
                     ]);
@@ -1197,7 +1198,7 @@ class PersonEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->ilosc = ParamUtils::getFromRequest('ilosc', true, 'Błędne wywołanie aplikacji');
         $this->form->stan = ParamUtils::getFromRequest('stan', true, 'Błędne wywołanie aplikacji');
-        $this->form->id_p = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_z = ParamUtils::getFromRequest('id_zamawiajacego', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -1245,7 +1246,7 @@ class PersonEditCtrl {
                 $this->form->ilosc = $record['ilosc'];
                 $this->form->stan = $record['stan'];
                 $this->form->ilosc = $record['ilosc'];
-                $this->form->id_p = $record['id_pracownika'];
+                $this->form->id_z = $record['id_zamawiajacego'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -1300,7 +1301,7 @@ class PersonEditCtrl {
                             "nazwa" => $this->form->nazwa,
                             "ilosc" => $this->form->ilosc,
                             "stan" => $this->form->stan,
-                            "id_pracownika" => $this->form->id_p
+                            "id_zamawiajacego" => $this->form->id_z
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -1314,7 +1315,7 @@ class PersonEditCtrl {
                         "nazwa" => $this->form->nazwa,
                         "ilosc" => $this->form->ilosc,
                         "stan" => $this->form->stan,
-                        "id_pracownika" => $this->form->id_p
+                        "id_zamawiajacego" => $this->form->id_z
                             ], [
                         "id_towaru" => $this->form->id
                     ]);

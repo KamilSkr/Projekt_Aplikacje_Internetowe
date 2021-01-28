@@ -20,8 +20,8 @@
             <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}">
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy towar" name="id_pracownika" value="{$form->id_p}">
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="{$form->id_z}">
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
@@ -44,8 +44,8 @@
             <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}" readonly>
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy Towar" name="id_pracownika" value="{$form->id_p}">
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy Towar" name="id_zamawiajacego" value="{$form->id_z}">
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
@@ -68,8 +68,8 @@
             <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}">
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy towar" name="id_pracownika" value="{$form->id_p}">
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="{$form->id_z}">
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

@@ -41,7 +41,7 @@
         </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
-            <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}" >
+            <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="{$form->stanowisko}">
         </div>
         <div class="pure-control-group">
             <label for="status">status</label>

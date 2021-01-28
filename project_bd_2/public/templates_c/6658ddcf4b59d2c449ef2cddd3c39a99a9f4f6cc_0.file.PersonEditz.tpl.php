@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-27 23:14:00
+/* Smarty version 3.1.30, created on 2021-01-28 21:19:24
   from "D:\XAMPP\htdocs\project_bd_2\app\views\PersonEditz.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_6011e5a8d81a11_07891648',
+  'unifunc' => 'content_60131c4cc61139_43188172',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6658ddcf4b59d2c449ef2cddd3c39a99a9f4f6cc' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\PersonEditz.tpl',
-      1 => 1611785461,
+      1 => 1611864656,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_6011e5a8d81a11_07891648 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60131c4cc61139_43188172 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20450263016011e5a8d81074_93042734', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_88304270960131c4cc60742_96177332', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_20450263016011e5a8d81074_93042734 extends Smarty_Internal_Block
+class Block_88304270960131c4cc60742_96177332 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -63,8 +63,8 @@ personSavez" method="post" class="pure-form pure-form-aligned">
 ">
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy towar" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>
 ">
         </div>
 		<div class="pure-controls">
@@ -92,8 +92,8 @@ centrum">Powrót</a>
 " readonly>
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy Towar" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy Towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>
 ">
         </div>
 		<div class="pure-controls">
@@ -121,8 +121,8 @@ employee">Powrót</a>
 ">
         </div>
         <div class="pure-control-group">
-            <label for="id_pracownika">Nr ID</label>
-            <input id="id_pracownika" type="text" placeholder="Zamawiajacy towar" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_p;?>
+            <label for="id_zamawiajacego">Nr ID</label>
+            <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>
 ">
         </div>
 		<div class="pure-controls">

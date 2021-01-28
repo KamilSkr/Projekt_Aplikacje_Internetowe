@@ -102,7 +102,7 @@ class PersonAdmin {
         try {
             $this->recordsz = App::getDB()->select("towar", [
                 "id_towaru",
-                "id_pracownika",
+                "id_zamawiajacego",
                 "nazwa",
                 "ilosc",
                 "stan",

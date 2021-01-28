@@ -5,6 +5,7 @@ namespace app\forms;
 class PersonEditForm {
 	public $id;
         public $id_p;
+        public $id_z;
 	public $name;
 	public $surname;
 	public $age;

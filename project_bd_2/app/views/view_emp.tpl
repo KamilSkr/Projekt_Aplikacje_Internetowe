@@ -84,7 +84,7 @@
 		<td>{$p["nazwa"]}</td>
 		<td>{$p["ilosc"]}</td>
                 <td>{$p["stan"]}</td>
-                <td>{$p["id_pracownika"]}</td>
+                <td>{$p["id_zamawiajacego"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}personEditz/{$p['id_towaru']}">Edytuj</a>		
 		</td>

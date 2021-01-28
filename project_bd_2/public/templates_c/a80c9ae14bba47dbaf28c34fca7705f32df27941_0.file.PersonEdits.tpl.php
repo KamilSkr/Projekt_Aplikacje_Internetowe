@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-27 23:04:48
+/* Smarty version 3.1.30, created on 2021-01-28 21:35:33
   from "D:\XAMPP\htdocs\project_bd_2\app\views\PersonEdits.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_6011e380c57133_93743983',
+  'unifunc' => 'content_60132015c21cb6_14251141',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a80c9ae14bba47dbaf28c34fca7705f32df27941' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\PersonEdits.tpl',
-      1 => 1611785088,
+      1 => 1611865622,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_6011e380c57133_93743983 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60132015c21cb6_14251141 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15160625876011e380c53435_51783252', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120542505660132015c1e330_61735957', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_15160625876011e380c53435_51783252 extends Smarty_Internal_Block
+class Block_120542505660132015c1e330_61735957 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -89,7 +89,7 @@ centrum">Powrót</a>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
             <input id="stanowisko" type="text" placeholder="stanowisko" name="stanowisko" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->stanowisko;?>
-" >
+">
         </div>
         <div class="pure-control-group">
             <label for="status">status</label>

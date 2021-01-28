@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 11:23 PM
+-- Generation Time: Jan 28, 2021 at 09:54 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `pracownicy` (
   `id_pracownika` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `surname` text COLLATE utf8_polish_ci NOT NULL,
+  `surname` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `age` int(11) NOT NULL,
-  `stanowisko` text COLLATE utf8_polish_ci NOT NULL,
-  `login` text COLLATE utf8_polish_ci NOT NULL,
-  `hasło` text COLLATE utf8_polish_ci NOT NULL
+  `stanowisko` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `login` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `hasło` varchar(20) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
@@ -60,26 +60,26 @@ INSERT INTO `pracownicy` (`id_pracownika`, `name`, `surname`, `age`, `stanowisko
 
 CREATE TABLE `towar` (
   `id_towaru` int(11) NOT NULL,
-  `nazwa` text COLLATE utf8_polish_ci NOT NULL,
+  `nazwa` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `ilosc` int(11) DEFAULT NULL,
-  `stan` text COLLATE utf8_polish_ci DEFAULT NULL,
-  `id_pracownika` int(20) NOT NULL
+  `stan` varchar(30) COLLATE utf8_polish_ci DEFAULT NULL,
+  `id_zamawiajacego` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Dumping data for table `towar`
 --
 
-INSERT INTO `towar` (`id_towaru`, `nazwa`, `ilosc`, `stan`, `id_pracownika`) VALUES
-(1, 'Uchwyt Spawalniczy VW TigLift 10-25', 24, 'Dostępny', 1),
-(2, 'Spawarka Caddy MIG C200', 10, 'Dostępny', 1),
+INSERT INTO `towar` (`id_towaru`, `nazwa`, `ilosc`, `stan`, `id_zamawiajacego`) VALUES
+(1, 'Uchwyt Spawalniczy VW TigLift ', 24, 'Dostępny', 1),
+(2, 'Spawarka Caddy MIG C200', 10, 'Dostępny', 2),
 (3, 'Korpus palnika', 40, 'Dostepny', 2),
 (4, 'Końcówka prądowa mb-15 - 0,8', 0, 'Nie dostępny', 3),
 (5, 'Końcówka prądowa mb-25 - 0,8', 200, 'Dostępny', 4),
 (6, 'Weldman ARC 203', 0, 'Zamówiony', 5),
 (7, 'Sherman 180 FL', 0, 'Zamówiony', 6),
 (8, 'Rękawice Heavy Duty', 0, 'Nie dostępny', 7),
-(9, 'Sherman 130F', 2, 'Dostępny', 2);
+(9, 'Sherman 130F', 2, 'Dostępny', 9);
 
 -- --------------------------------------------------------
 
@@ -89,9 +89,9 @@ INSERT INTO `towar` (`id_towaru`, `nazwa`, `ilosc`, `stan`, `id_pracownika`) VAL
 
 CREATE TABLE `zadania` (
   `id_zadania` int(11) NOT NULL,
-  `do_wykonania` text COLLATE utf8_polish_ci DEFAULT NULL,
-  `stanowisko` text COLLATE utf8_polish_ci DEFAULT NULL,
-  `status` text COLLATE utf8_polish_ci DEFAULT NULL,
+  `do_wykonania` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
+  `stanowisko` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
+  `status` varchar(20) COLLATE utf8_polish_ci DEFAULT NULL,
   `id_pracownika` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
@@ -102,12 +102,12 @@ CREATE TABLE `zadania` (
 INSERT INTO `zadania` (`id_zadania`, `do_wykonania`, `stanowisko`, `status`, `id_pracownika`) VALUES
 (1, 'Posegregować Faktury', 'Ksiegowa', 'Zrobione', 1),
 (2, 'Wypełnić Faktury', 'Księgowa', 'Do wykonania', 1),
-(3, 'Wyłożyć towar na półki', 'Magazynier', 'Zrobione', 9),
+(3, 'Wyłożyć towar na pół', 'Magazynier', 'Zrobione', 9),
 (4, 'Posprzątać na hali', 'Magazynier', 'Do wykonania', 2),
 (5, 'Spakować Paczki', 'Magazynier', 'Do wykonania', 3),
-(6, 'Policzyć stany magazynu ', 'Magazynier', 'Do wykonania', 5),
+(6, 'Policzyć stany magaz', 'Magazynier', 'Do wykonania', 5),
 (7, 'Wydrukować naklejki', 'Magazynier', 'Do wykonania', 3),
-(8, 'Spotkanie firmowe', 'Magazynier', '-', 2),
+(8, 'Spotkanie firmowe', 'Magazyn', '-', 2),
 (9, 'Zafakturować Towar ', 'Ksiegowa', 'w trakcie', 6),
 (10, 'Odebrac towar', 'Asystent magazyniera', 'Do wykonania', 4);
 
@@ -126,7 +126,7 @@ ALTER TABLE `pracownicy`
 --
 ALTER TABLE `towar`
   ADD PRIMARY KEY (`id_towaru`),
-  ADD KEY `zamawiajacy` (`id_pracownika`) USING BTREE;
+  ADD KEY `id_zamawiajacego` (`id_zamawiajacego`) USING BTREE;
 
 --
 -- Indexes for table `zadania`
@@ -165,7 +165,7 @@ ALTER TABLE `zadania`
 -- Constraints for table `towar`
 --
 ALTER TABLE `towar`
-  ADD CONSTRAINT `towar_ibfk_1` FOREIGN KEY (`id_pracownika`) REFERENCES `pracownicy` (`id_pracownika`);
+  ADD CONSTRAINT `towar_ibfk_1` FOREIGN KEY (`id_zamawiajacego`) REFERENCES `pracownicy` (`id_pracownika`);
 
 --
 -- Constraints for table `zadania`
