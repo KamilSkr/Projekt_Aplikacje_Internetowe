@@ -17,8 +17,8 @@
             <input id="surname" type="text" placeholder="nazwisko" name="surname" value="{$form->surname}">
         </div>
         <div class="pure-control-group">
-            <label for="age">wiek</label>
-            <input id="age" type="text" placeholder="wiek" name="age" value="{$form->age}">
+            <label for="data_urodzenia">wiek</label>
+            <input id="data_urodzenia" type="text" placeholder="data urodzenia" name="age" value="{$form->age}">
         </div>
         <div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
@@ -42,8 +42,8 @@
             <input id="surname" type="text" placeholder="nazwisko" name="surname" value="{$form->surname}" readonly>
         </div>
         <div class="pure-control-group">
-            <label for="age">wiek</label>
-            <input id="age" type="text" placeholder="wiek" name="age" value="{$form->age}" readonly>
+            <label for="data_urodzenia">wiek</label>
+            <input id="data_urodzenia" type="text" placeholder="data urodzenia" name="data_urodzenia" value="{$form->age}" readonly>
         </div>
         <div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>

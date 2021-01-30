@@ -77,7 +77,7 @@ class PersonAdmin {
                 "id_pracownika",
                 "name",
                 "surname",
-                "age",
+                "data_urodzenia",
                 "stanowisko",
                     ], $where);
         } catch (\PDOException $e) {

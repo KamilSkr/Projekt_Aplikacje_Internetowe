@@ -51,7 +51,7 @@
                 <th>{$p["id_pracownika"]}</th>
                 <td>{$p["name"]}</td>
 		<td>{$p["surname"]}</td>
-		<td>{$p["age"]}</td>
+		<td>{$p["data_urodzenia"]}</td>
                 <td>{$p["stanowisko"]}</td>
 		
 	</tr>

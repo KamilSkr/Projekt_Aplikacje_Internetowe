@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2021 at 09:54 PM
+-- Generation Time: Jan 30, 2021 at 02:36 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -31,7 +31,7 @@ CREATE TABLE `pracownicy` (
   `id_pracownika` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `surname` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `age` int(11) NOT NULL,
+  `data_urodzenia` date NOT NULL,
   `stanowisko` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `login` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `hasło` varchar(20) COLLATE utf8_polish_ci NOT NULL
@@ -41,16 +41,16 @@ CREATE TABLE `pracownicy` (
 -- Dumping data for table `pracownicy`
 --
 
-INSERT INTO `pracownicy` (`id_pracownika`, `name`, `surname`, `age`, `stanowisko`, `login`, `hasło`) VALUES
-(1, 'Kasia', 'Motyl', 32, 'Ksiegowa', 'user', 'user'),
-(2, 'Karol', 'Mucha', 23, 'Magazynier', 'user', 'user'),
-(3, 'Miłosz', 'Krupa', 25, 'Magazynier', 'user', 'user'),
-(4, 'Piotr', 'Wojcik', 19, 'Magazynier', 'user', 'user'),
-(5, 'Daniel', 'Wariat', 31, 'Magazynier', 'user', 'user'),
-(6, 'Karolina', 'Welon', 21, 'Ksiegowa', 'user', 'user'),
-(7, 'Aneta', 'Kropek', 32, 'Sprzątaczka', 'user', 'user'),
-(9, 'Hubert', 'Urbanski', 42, 'Asystent magazyniera', 'user', 'user'),
-(21, 'Mariusz', 'Konieczny', 19, 'Asystent magazyniera', 'user', 'user');
+INSERT INTO `pracownicy` (`id_pracownika`, `name`, `surname`, `data_urodzenia`, `stanowisko`, `login`, `hasło`) VALUES
+(1, 'Kasia', 'Motyl', '2000-02-12', 'Ksiegowa', 'user', 'user'),
+(2, 'Karol', 'Mucha', '1975-04-07', 'Magazynier', 'user', 'user'),
+(3, 'Miłosz', 'Krupa', '1994-12-27', 'Magazynier', 'user', 'user'),
+(4, 'Piotr', 'Wojcik', '2000-03-18', 'Magazynier', 'user', 'user'),
+(5, 'Daniel', 'Wariat', '1989-04-20', 'Magazynier', 'user', 'user'),
+(6, 'Karolina', 'Welon', '2001-06-01', 'Ksiegowa', 'user', 'user'),
+(7, 'Aneta', 'Kropek', '1972-02-01', 'Sprzątaczka', 'user', 'user'),
+(9, 'Hubert', 'Urbanski', '1999-09-12', 'Asystent magazyniera', 'user', 'user'),
+(21, 'Mariusz', 'Konieczny', '1997-04-05', 'Asystent magazyniera', 'user', 'user');
 
 -- --------------------------------------------------------
 

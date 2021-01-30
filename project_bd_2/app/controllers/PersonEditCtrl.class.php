@@ -24,7 +24,7 @@ class PersonEditCtrl {
         $this->form->id = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
         $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
         $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
-        $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
+        $this->form->age = ParamUtils::getFromRequest('data_urodzenia', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
@@ -48,6 +48,11 @@ class PersonEditCtrl {
             return false;
 
         // 2. sprawdzenie poprawności przekazanych parametrów
+		
+		 $d = \DateTime::createFromFormat('Y-m-d', $this->form->age);
+        if ($d === false) {
+            Utils::addErrorMessage('Zły format daty. Przykład: 2015-12-20');
+        }
 
 
         return !App::getMessages()->isError();
@@ -78,7 +83,7 @@ class PersonEditCtrl {
                 $this->form->id = $record['id_pracownika'];
                 $this->form->name = $record['name'];
                 $this->form->surname = $record['surname'];
-                $this->form->age = $record['age'];
+                $this->form->age = $record['data_urodzenia'];
                 $this->form->stanowisko = $record['stanowisko'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -133,7 +138,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("pracownicy", [
                             "name" => $this->form->name,
                             "surname" => $this->form->surname,
-                            "age" => $this->form->age,
+                            "data_urodzenia" => $this->form->age,
                             "stanowisko" => $this->form->stanowisko
                         ]);
                     } else { //za dużo rekordów
@@ -147,7 +152,7 @@ class PersonEditCtrl {
                     App::getDB()->update("pracownicy", [
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
-                        "age" => $this->form->age,
+                        "data_urodzenia" => $this->form->age,
                         "stanowisko" => $this->form->stanowisko
                             ], [
                         "id_pracownika" => $this->form->id
@@ -528,7 +533,7 @@ class PersonEditCtrl {
         $this->form->id = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
         $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
         $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
-        $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
+        $this->form->age = ParamUtils::getFromRequest('data_urodzenia', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
         
 
@@ -543,7 +548,7 @@ class PersonEditCtrl {
             Utils::addErrorMessage('Wprowadź nazwisko');
         }
         if (empty(trim($this->form->age))) {
-            Utils::addErrorMessage('Wprowadź wiek');
+            Utils::addErrorMessage('Wprowadź date urodzenia');
         }
         if (empty(trim($this->form->stanowisko))) {
             Utils::addErrorMessage('Wprowadź stanowisko');
@@ -554,6 +559,10 @@ class PersonEditCtrl {
 
         // 2. sprawdzenie poprawności przekazanych parametrów
 
+            $d = \DateTime::createFromFormat('Y-m-d', $this->form->age);
+        if ($d === false) {
+            Utils::addErrorMessage('Zły format daty. Przykład: 2015-12-20');
+        }
 
         return !App::getMessages()->isError();
     }
@@ -583,7 +592,7 @@ class PersonEditCtrl {
                 $this->form->id = $record['id_pracownika'];
                 $this->form->name = $record['name'];
                 $this->form->surname = $record['surname'];
-                $this->form->age = $record['age'];
+                $this->form->age = $record['data_urodzenia'];
                 $this->form->stanowisko = $record['stanowisko'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -638,7 +647,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("pracownicy", [
                             "name" => $this->form->name,
                             "surname" => $this->form->surname,
-                            "age" => $this->form->age,
+                            "data_urodzenia" => $this->form->age,
                             "stanowisko" => $this->form->stanowisko
                         ]);
                     } else { //za dużo rekordów
@@ -652,7 +661,7 @@ class PersonEditCtrl {
                     App::getDB()->update("pracownicy", [
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
-                        "age" => $this->form->age,
+                        "data_urodzenia" => $this->form->age,
                         "stanowisko" => $this->form->stanowisko
                             ], [
                         "id_pracownika" => $this->form->id
@@ -1025,7 +1034,7 @@ class PersonEditCtrl {
         $this->form->id = ParamUtils::getFromRequest('id_pracownika', true, 'Błędne wywołanie aplikacji');
         $this->form->name = ParamUtils::getFromRequest('name', true, 'Błędne wywołanie aplikacji');
         $this->form->surname = ParamUtils::getFromRequest('surname', true, 'Błędne wywołanie aplikacji');
-        $this->form->age = ParamUtils::getFromRequest('age', true, 'Błędne wywołanie aplikacji');
+        $this->form->age = ParamUtils::getFromRequest('data_urodzenia', true, 'Błędne wywołanie aplikacji');
         $this->form->stanowisko = ParamUtils::getFromRequest('stanowisko', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
@@ -1039,7 +1048,7 @@ class PersonEditCtrl {
             Utils::addErrorMessage('Wprowadź nazwisko');
         }
         if (empty(trim($this->form->age))) {
-            Utils::addErrorMessage('Wprowadź wiek');
+            Utils::addErrorMessage('Wprowadź date urodzenia');
         }
         if (empty(trim($this->form->stanowisko))) {
             Utils::addErrorMessage('Wprowadź stanowisko');
@@ -1079,7 +1088,7 @@ class PersonEditCtrl {
                 $this->form->id = $record['id_pracownika'];
                 $this->form->name = $record['name'];
                 $this->form->surname = $record['surname'];
-                $this->form->age = $record['age'];
+                $this->form->age = $record['data_urodzenia'];
                 $this->form->stanowisko = $record['stanowisko'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -1134,7 +1143,7 @@ class PersonEditCtrl {
                         App::getDB()->insert("pracownicy", [
                             "name" => $this->form->name,
                             "surname" => $this->form->surname,
-                            "age" => $this->form->age,
+                            "data_urodzenia" => $this->form->age,
                             "stanowisko" => $this->form->stanowisko
                         ]);
                     } else { //za dużo rekordów
@@ -1148,7 +1157,7 @@ class PersonEditCtrl {
                     App::getDB()->update("pracownicy", [
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
-                        "age" => $this->form->age,
+                        "data_urodzenia" => $this->form->age,
                         "stanowisko" => $this->form->stanowisko
                             ], [
                         "id_pracownika" => $this->form->id

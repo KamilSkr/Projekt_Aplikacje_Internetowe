@@ -72,7 +72,7 @@
 		<td>{$p["id_pracownika"]}</td>
                 <td>{$p["name"]}</td>
 		<td>{$p["surname"]}</td>
-		<td>{$p["age"]}</td>
+		<td>{$p["data_urodzenia"]}</td>
                 <td>{$p["stanowisko"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}personEdit/{$p['id_pracownika']}">Edytuj</a>
