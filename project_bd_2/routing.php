@@ -9,7 +9,12 @@ App::getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowan
 Utils::addRoute('personList',    'PersonListCtrl');
 Utils::addRoute('centrum',    'PersonAdmin');
 Utils::addRoute('employee',    'PersonEmp');
+Utils::addRoute('employeePracownik',    'PersonEmp');
+Utils::addRoute('employeeTowar',    'PersonEmp');
+Utils::addRoute('employeeZadania',    'PersonEmp');
 Utils::addRoute('User',    'PersonUser');
+Utils::addRoute('UserTowar',    'PersonUser');
+Utils::addRoute('UserZadania',    'PersonUser');
 Utils::addRoute('loginShow',     'LoginCtrl');
 Utils::addRoute('login',         'LoginCtrl');
 Utils::addRoute('logout',        'LoginCtrl');

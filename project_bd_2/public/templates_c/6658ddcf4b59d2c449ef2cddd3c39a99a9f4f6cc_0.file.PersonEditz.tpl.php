@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-28 21:19:24
+/* Smarty version 3.1.30, created on 2021-02-06 16:27:27
   from "D:\XAMPP\htdocs\project_bd_2\app\views\PersonEditz.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_60131c4cc61139_43188172',
+  'unifunc' => 'content_601eb55f100161_36784396',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6658ddcf4b59d2c449ef2cddd3c39a99a9f4f6cc' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\PersonEditz.tpl',
-      1 => 1611864656,
+      1 => 1612625242,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_60131c4cc61139_43188172 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601eb55f100161_36784396 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_88304270960131c4cc60742_96177332', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1975083542601eb55f0ff5f3_40091917', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_88304270960131c4cc60742_96177332 extends Smarty_Internal_Block
+class Block_1975083542601eb55f0ff5f3_40091917 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -57,11 +57,20 @@ personSavez" method="post" class="pure-form pure-form-aligned">
             <input id="ilosc" type="text" placeholder="ilosc" name="ilosc" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->ilosc;?>
 ">
         </div>
+        
         <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->stan;?>
-">
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Dostępny') {?> selected<?php }?>>Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Nie Dostępny') {?> selected<?php }?>>Nie Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Zamówiony') {?> selected<?php }?>>Zamówiony</option>
+            </select>
+                    </div>
+        
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>
@@ -88,9 +97,16 @@ centrum">Powrót</a>
         </div>
         <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->stan;?>
-" readonly>
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Dostępny') {?> selected<?php }?>>Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Nie Dostępny') {?> selected<?php }?>>Nie Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Zamówiony') {?> selected<?php }?>>Zamówiony</option>
+            </select>
+                    </div>
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy Towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>
@@ -115,11 +131,18 @@ employee">Powrót</a>
             <input id="ilosc" type="text" placeholder="ilosc" name="ilosc" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->ilosc;?>
 ">
         </div>
-        <div class="pure-control-group">
+                <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->stan;?>
-">
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Dostępny') {?> selected<?php }?>>Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Nie Dostępny') {?> selected<?php }?>>Nie Dostępny</option>
+                
+                <option <?php if ($_smarty_tpl->tpl_vars['form']->value->stan == 'Zamówiony') {?> selected<?php }?>>Zamówiony</option>
+            </select>
+                    </div>
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_z;?>

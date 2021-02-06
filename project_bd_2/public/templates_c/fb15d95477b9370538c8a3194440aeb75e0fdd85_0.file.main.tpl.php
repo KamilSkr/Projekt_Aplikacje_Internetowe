@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-01-25 19:51:06
+/* Smarty version 3.1.30, created on 2021-02-06 18:26:27
   from "D:\XAMPP\htdocs\project_bd_2\app\views\templates\main.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_600f131a4c8eb0_13915236',
+  'unifunc' => 'content_601ed143cc8148_95086278',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fb15d95477b9370538c8a3194440aeb75e0fdd85' => 
     array (
       0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\templates\\main.tpl',
-      1 => 1611600665,
+      1 => 1612632380,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_600f131a4c8eb0_13915236 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601ed143cc8148_95086278 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -94,12 +94,23 @@ centrum">Home</a></li>
 logout">Wyloguj</a></li>
                                         <?php } elseif (\core\RoleUtils::inRole('user')) {?>
                                         <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+UserTowar">Towar</a></li>
+                                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+UserZadania">Zadania</a></li>
+                                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 User">Home</a></li>
                                         <li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout">Wyloguj</a></li>
                                         <?php } elseif (\core\RoleUtils::inRole('employee')) {?>
                                         <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+employeePracownik">Pracownicy</a></li>
+                                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+employeeTowar">Towar</a></li>
+                                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+employeeZadania">Zadania</a></li>                                        
+                                        <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 employee">Home</a></li>
+                                        
 					<li><a class="btn" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout">Wyloguj</a></li>
                                         <?php } else { ?>
@@ -117,17 +128,17 @@ loginShow">Zaloguj</a></li>
                 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19295260600f131a4a5094_99279754', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1252827780601ed143c956e1_70312508', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_942632188600f131a4b9fc2_67434412', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1736486202601ed143cb0993_51816582', 'messages');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_331223648600f131a4bad92_36251770', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1698846470601ed143cb2038_68611536', 'bottom');
 ?>
 
 
@@ -225,7 +236,7 @@ logout">Wyloguj</a>
 
 </html><?php }
 /* {block 'top'} */
-class Block_19295260600f131a4a5094_99279754 extends Smarty_Internal_Block
+class Block_1252827780601ed143c956e1_70312508 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -234,7 +245,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'top'} */
 /* {block 'messages'} */
-class Block_942632188600f131a4b9fc2_67434412 extends Smarty_Internal_Block
+class Block_1736486202601ed143cb0993_51816582 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -265,7 +276,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 }
 /* {/block 'messages'} */
 /* {block 'bottom'} */
-class Block_331223648600f131a4bad92_36251770 extends Smarty_Internal_Block
+class Block_1698846470601ed143cb2038_68611536 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>

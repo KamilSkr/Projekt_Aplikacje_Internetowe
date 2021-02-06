@@ -21,8 +21,16 @@
         </div>
         <div class="pure-control-group">
             <label for="status">status</label>
-            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}">
-        </div>
+            <select name="status" id="status" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> status == 'Do wykonania'} selected{/if}>Do wykonania</option>
+                
+                <option {if $form -> status == 'Zrobione'} selected{/if}>Zrobione</option>
+                
+                <option {if $form -> status == 'W trakcie'} selected{/if}>W trakcie</option>
+            </select>
+                    </div>
         		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
 			<a class="pure-button button-secondary" href="{$conf->action_root}centrum">Powrót</a>
@@ -45,8 +53,16 @@
         </div>
         <div class="pure-control-group">
             <label for="status">status</label>
-            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}" readonly>
-        </div>
+            <select name="status" id="status" style="background-color: black; height: 2.85em;" readonly>
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> status == 'Do wykonania'} selected{/if}>Do wykonania</option>
+                
+                <option {if $form -> status == 'Zrobione'} selected{/if}>Zrobione</option>
+                
+                <option {if $form -> status == 'W trakcie'} selected{/if}>W trakcie</option>
+            </select>
+                    </div>
         		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
 			<a class="pure-button button-secondary" href="{$conf->action_root}employee">Powrót</a>
@@ -61,7 +77,7 @@
         </div>
         <div class="pure-control-group">
             <label for="id_pracownika">Pracownik</label>
-            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="{$form->id_p}" readonly>
+            <input id="id_pracownika" type="text" placeholder="ID Pracownika" name="id_pracownika" value="{$form->id_p}">
         </div>
 		<div class="pure-control-group">
             <label for="stanowisko">stanowisko</label>
@@ -69,8 +85,16 @@
         </div>
         <div class="pure-control-group">
             <label for="status">status</label>
-            <input id="status" type="text" placeholder="status" name="status" value="{$form->status}">
-        </div>
+            <select name="status" id="status" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> status == 'Do wykonania'} selected{/if}>Do wykonania</option>
+                
+                <option {if $form -> status == 'Zrobione'} selected{/if}>Zrobione</option>
+                
+                <option {if $form -> status == 'W trakcie'} selected{/if}>W trakcie</option>
+            </select>
+                    </div>
         		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
 			<a class="pure-button button-secondary" href="{$conf->action_root}User">Powrót</a>

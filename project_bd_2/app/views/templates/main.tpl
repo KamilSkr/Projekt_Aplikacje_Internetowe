@@ -56,10 +56,16 @@
                                         <li class="active"><a href="{$conf->action_root}centrum">Home</a></li>
 					<li><a class="btn" href="{$conf->action_root}logout">Wyloguj</a></li>
                                         {else if \core\RoleUtils::inRole('user')}
+                                        <li class="active"><a href="{$conf->action_root}UserTowar">Towar</a></li>
+                                        <li class="active"><a href="{$conf->action_root}UserZadania">Zadania</a></li>
                                         <li class="active"><a href="{$conf->action_root}User">Home</a></li>
                                         <li><a class="btn" href="{$conf->action_root}logout">Wyloguj</a></li>
                                         {else if \core\RoleUtils::inRole('employee')}
+                                        <li class="active"><a href="{$conf->action_root}employeePracownik">Pracownicy</a></li>
+                                        <li class="active"><a href="{$conf->action_root}employeeTowar">Towar</a></li>
+                                        <li class="active"><a href="{$conf->action_root}employeeZadania">Zadania</a></li>                                        
                                         <li class="active"><a href="{$conf->action_root}employee">Home</a></li>
+                                        
 					<li><a class="btn" href="{$conf->action_root}logout">Wyloguj</a></li>
                                         {else}
                                         <li class="active"><a href="{$conf->action_root}personList">Home</a></li>

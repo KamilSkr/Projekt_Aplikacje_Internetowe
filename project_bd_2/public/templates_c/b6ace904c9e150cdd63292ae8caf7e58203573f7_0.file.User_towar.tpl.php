@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2021-02-06 17:31:49
-  from "D:\XAMPP\htdocs\project_bd_2\app\views\User.tpl" */
+/* Smarty version 3.1.30, created on 2021-02-06 16:37:44
+  from "D:\XAMPP\htdocs\project_bd_2\app\views\User_towar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_601ec4750c5e24_07104018',
+  'unifunc' => 'content_601eb7c8120e21_07967575',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '390fa96d2abc94c7fc33c73188980fa2c38b9bfe' => 
+    'b6ace904c9e150cdd63292ae8caf7e58203573f7' => 
     array (
-      0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\User.tpl',
-      1 => 1612628688,
+      0 => 'D:\\XAMPP\\htdocs\\project_bd_2\\app\\views\\User_towar.tpl',
+      1 => 1612625726,
       2 => 'file',
     ),
   ),
@@ -21,26 +21,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_601ec4750c5e24_07104018 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601eb7c8120e21_07967575 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1398966857601ec4750a9b01_11704946', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1425670810601eb7c8103a95_54327090', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1281598401601ec4750c5539_18924074', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_154144101601eb7c8120607_67030132', 'bottom');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_1398966857601ec4750a9b01_11704946 extends Smarty_Internal_Block
+class Block_1425670810601eb7c8103a95_54327090 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -83,7 +83,7 @@ User">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_1281598401601ec4750c5539_18924074 extends Smarty_Internal_Block
+class Block_154144101601eb7c8120607_67030132 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -115,47 +115,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 personEditz/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_towaru'];?>
 ">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 personDeletez/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_towaru'];?>
-">Usuń</a></td></tr>
-<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-</tbody>
-</table>
-
-
-
-<div class="bottom-margin_2">
-    <a class="pure-button button-success" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-personNewss" style="margin-top: 2em;">Nowe zadania do wykonania</a>
-</div>	
-
-<table id="tab_people_2" class="pure-table pure-table-bordered">
-<thead>
-	<tr>
-		<th>Zadania do wykonania</th>
-                <th>Pracownik</th>
-		<th>Stanowisko</th>
-		<th>Status</th>
-		<th>Opcje</th>
-	</tr>
-</thead>
-<tbody>
-<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['zadania']->value, 'p');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
-?>
-<tr><td><?php echo $_smarty_tpl->tpl_vars['p']->value["do_wykonania"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["id_pracownika"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["stanowisko"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["status"];?>
-</td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-personEdits/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_zadania'];?>
-">Edytuj</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-personDeletes/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_zadania'];?>
 ">Usuń</a></td></tr>
 <?php
 }

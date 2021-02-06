@@ -15,10 +15,20 @@
             <label for="ilosc">ilosc</label>
             <input id="ilosc" type="text" placeholder="ilosc" name="ilosc" value="{$form->ilosc}">
         </div>
+        
         <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}">
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> stan == 'Dostępny'} selected{/if}>Dostępny</option>
+                
+                <option {if $form -> stan == 'Nie Dostępny'} selected{/if}>Nie Dostępny</option>
+                
+                <option {if $form -> stan == 'Zamówiony'} selected{/if}>Zamówiony</option>
+            </select>
+                    </div>
+        
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="{$form->id_z}">
@@ -41,8 +51,16 @@
         </div>
         <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}" readonly>
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> stan == 'Dostępny'} selected{/if}>Dostępny</option>
+                
+                <option {if $form -> stan == 'Nie Dostępny'} selected{/if}>Nie Dostępny</option>
+                
+                <option {if $form -> stan == 'Zamówiony'} selected{/if}>Zamówiony</option>
+            </select>
+                    </div>
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy Towar" name="id_zamawiajacego" value="{$form->id_z}">
@@ -63,10 +81,18 @@
             <label for="ilosc">ilosc</label>
             <input id="ilosc" type="text" placeholder="ilosc" name="ilosc" value="{$form->ilosc}">
         </div>
-        <div class="pure-control-group">
+                <div class="pure-control-group">
             <label for="stan">stan</label>
-            <input id="stan" type="text" placeholder="stan" name="stan" value="{$form->stan}">
-        </div>
+            <select name="stan" id="stan" style="background-color: black; height: 2.85em;">
+                <option value="" > Wybierz stan... </option>
+
+                <option {if $form -> stan == 'Dostępny'} selected{/if}>Dostępny</option>
+                
+                <option {if $form -> stan == 'Nie Dostępny'} selected{/if}>Nie Dostępny</option>
+                
+                <option {if $form -> stan == 'Zamówiony'} selected{/if}>Zamówiony</option>
+            </select>
+                    </div>
         <div class="pure-control-group">
             <label for="id_zamawiajacego">Nr ID</label>
             <input id="id_zamawiajacego" type="text" placeholder="Zamawiajacy towar" name="id_zamawiajacego" value="{$form->id_z}">

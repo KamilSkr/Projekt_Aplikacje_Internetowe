@@ -65,6 +65,10 @@
 .button-xlarge {
     font-size: 125%;
 }
+.pure-form select
+{
+    height: 2.85em;
+}
 /* Nav */
 
 	#nav {
