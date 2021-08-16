@@ -6,7 +6,7 @@
 			<div class="row">
 				<h1 class="lead">MAGAZYN</h1>
 				<p class="tagline">APLIKACJA DO KOMUNIKACJI I ORGANIZACJI PRACY</p>
-				<p><a href="{$conf->action_root}User" class="btn btn-default btn-lg" role="button">Lista</a> 
+				<p><a href="{$conf->action_root}User" class="btn btn-default btn-lg" role="button">Lista</a>
                                     {if count($conf->roles)>0}
                                     <a href="{$conf->action_root}logout" class="btn btn-action btn-lg" role="button">Wyloguj</a></p>
                                     {else}
@@ -15,18 +15,18 @@
 			</div>
 		</div>
 	</header>
-                        	
+
 <div class="bottom-margin ">
 <form class="pure-form pure-form-stacked" action="{$conf->action_url}User">
     <legend style="color: #ffffff;">Opcje wyszukiwania</legend>
 	<fieldset>
 		<input type="text" placeholder="nazwa" name="sf_nazwa" value="{$searchForm->nazwa}"style="float: left;"  />
-                <input type="text" placeholder="do wykonania" name="sf_do_wykonania" value="{$searchForm->do_wykonania}" style="margin-left: 15em;" /><br />              
+                <input type="text" placeholder="do wykonania" name="sf_do_wykonania" value="{$searchForm->do_wykonania}" style="margin-left: 15em;" /><br />
 		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 	</fieldset>
-               
+
 </form>
-</div>	
+</div>
 
 {/block}
 
@@ -67,7 +67,7 @@
 
 <div class="bottom-margin_2">
     <a class="pure-button button-success" href="{$conf->action_root}personNewss" style="margin-top: 2em;">Nowe zadania do wykonania</a>
-</div>	
+</div>
 
 <table id="tab_people_2" class="pure-table pure-table-bordered">
 <thead>

@@ -7,7 +7,7 @@
 			<div class="row">
 				<h1 class="lead">MAGAZYN</h1>
 				<p class="tagline">APLIKACJA DO KOMUNIKACJI I ORGANIZACJI PRACY</p>
-				<p><a href="{$conf->action_root}centrum" class="btn btn-default btn-lg" role="button">Lista</a> 
+				<p><a href="{$conf->action_root}centrum" class="btn btn-default btn-lg" role="button">Lista</a>
                                     {if count($conf->roles)>0}
                                     <a href="{$conf->action_root}logout" class="btn btn-action btn-lg" role="button">Wyloguj</a></p>
                                     {else}
@@ -17,16 +17,16 @@
 		</div>
 	</header>
     </div>
-                        	
+
 <div class="bottom-margin ">
 
-</div>	
+</div>
                 <header id="header">
-						
+
 						<div class="content">
 							<div class="inner">
 								<h1>PEMAT</h1>
-                                                               
+
 							</div>
 						</div>
 						<nav>
@@ -52,7 +52,7 @@
 </form>
                                                                 <div class="bottom-margin">
 <a class="pure-button button-success" href="{$conf->action_root}personNew">+ Nowy Pracownik</a>
-</div>	
+</div>
 
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
@@ -92,14 +92,14 @@
                                                                 <form class="pure-form pure-form-stacked" action="{$conf->action_url}centrum">
 	<legend>Opcje wyszukiwania</legend>
 	<fieldset>
-		
+
                 <input type="text" placeholder="nazwa" name="sf_nazwa" value="{$searchForm->nazwa}"style="margin-bottom: 2em;"  />
                 <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 	</fieldset>
 </form>
 <div class="bottom-margin_1">
 <a class="pure-button button-success" href="{$conf->action_root}personNewz">+ Nowy Towar</a>
-</div>	
+</div>
 
 <table id="tab_people_1" class="pure-table pure-table-bordered">
 <thead>
@@ -143,7 +143,7 @@
 </form>
                                                                 <div class="bottom-margin_2">
 <a class="pure-button button-success" href="{$conf->action_root}personNewss">+ Nowe zadania do wykonania</a>
-</div>	
+</div>
 
 <table id="tab_people_2" class="pure-table pure-table-bordered">
 <thead>
@@ -179,7 +179,7 @@
                                                             <h2 class="major">Kontakt</h2>
 						<div class="widget-body">
                                                     <a>Kamil</a><br><br/>
-                                                        
+
 							<a href="mailto:#">skrzypekpb@gmail.com</a><br><br/>
 
 							<a href="https://github.com/KamilSkr/">https://github.com/KamilSkr/</a> <br/> <br/>
