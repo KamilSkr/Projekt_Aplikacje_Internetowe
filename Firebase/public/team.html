@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="dist/css/main.css">
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -75,7 +75,7 @@
 
 
 
-  <script src="squad.js" defer></script>
+  <script src="dist/js/squad.js" defer></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -819,47 +819,57 @@
           <!-- Small boxes (Stat box) -->
           <!-- Main row - tresc glowna -->
 
-          <h1 id="wgracTrening">Wgrac Trening</h1>
-          <input type="textfield" id="training" />
-          <button id="saveButton">Save</button>
-          <button id="select">select img</button>
-          <button id="upload">uploads img</button>
-          <button id="retrieve">retreive img</button>
 
 
+<!-- Formularz Dodawania Zawodnika -->
 
-          <section id="thingsShow">
-            <h2>My Firestore Things</h2>
-            <input type="textfield" id="imie" />
-            <ul id="thingsList">
-
-
-            </ul>
-            <button id="createThing" class="btn btn-success">Create Random Thing</button>
-          </section> <br />
-
-          <section id="teamsShow">
-            <h2>Zawodnicy</h2>
-            <input type="textfield" id="imise" />
-            <ul id="playersList">
-
-
-            </ul>
-            <button id="team_squad" class="btn btn-success">nowy zawodnik</button>
-          </section> <br />
-
+<div class="btn btn-secondary dropdown-toggle" style="background-color: rgb(96, 96, 99); color: white; font-weight: bold; padding: 10px; cursor: pointer"
+             onclick="toggle('divContent1')">Dodaj Zawodnika</div>
+        <div style="height: 100px; padding: 10px" id="divContent1">
+             <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputName">Imie</label>
+                <input type="text" class="form-control" id="namep" placeholder="Imie">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputSurname">Nazwisko</label>
+                <input type="text" class="form-control" id="surnamep" placeholder="Nazwisko">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+              <label for="inputData">Data Urodzenia</label>
+              <input type="date" class="form-control" id="datap" placeholder="dd.mm.rrrr">
+            </div>
+              <div class="form-group col-md-3">
+                <label for="inputNumber">Numer</label>
+                <input type="text" class="form-control" id="numberp">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="inputPosition">Pozycja</label>
+                <select id="positionp" class="form-control">
+                  <option selected>Bramkarz</option>
+                  <option >Obronca</option>
+                  <option >Pomocnik</option>
+                  <option >Napastnik</option>
+                </select>
+              </div>
+            </div>
+            <button id="team_squad" class="btn btn-dark btn-lg ">Dodaj Zawodnika</button>
+          </div>
+          <br /><br /><br /><br /><br /><br />
           <div class="container" mt-4>
             <div class="card">
               <div class="card-body">
-                <span>Lista zawodnikow</span>
-                <button class="btn btn-dark btn-lg float-right">Agrefear</button>
+                <h1>Lista Zawodnikow</h1>
                 <table class="table table-striped mt-5">
                   <thead>
                     <tr>
-                      <th scope="col">Id</th>
+                      <th scope="col">Numer</th>
                       <th scope="col">Imie</th>
                       <th scope="col">Nazwisko</th>
                       <th scope="col">Pozycja</th>
+                      <th scope="col">Data</th>
                     </tr>
                   </thead>
                   <tbody id="tbody1">
@@ -873,6 +883,7 @@
 
           <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
+      </div>
       </section>
 
 

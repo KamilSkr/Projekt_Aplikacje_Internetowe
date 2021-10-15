@@ -4,6 +4,7 @@
             apiKey: "AIzaSyB8vgjmPbmopzA5bLRPap6HUB4buDR6dQs",
             authDomain: "app-trener.firebaseapp.com",
             projectId: "app-trener",
+            databaseURL: "https://app-trener-default-rtdb.europe-west1.firebasedatabase.app",
             storageBucket: "app-trener.appspot.com",
             messagingSenderId: "190255082198",
             appId: "1:190255082198:web:af25e9915ea21bc9d37777",
@@ -13,6 +14,8 @@
           firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+
+const database = firebase.database();
 
 const whenSignedIn = document.getElementById('whenSignedIn');
 const whenSignedOut = document.getElementById('whenSignedOut');
@@ -52,6 +55,7 @@ auth.onAuthStateChanged(user => {
 
 
 
+
 ///// Firestore /////
 
 const db = firebase.firestore();
@@ -63,7 +67,7 @@ const imie = document.getElementById('imie');
 
 
 let thingsRef;
-let unsubscribe;
+let saveDB;
 
 auth.onAuthStateChanged(user => {
 
@@ -91,7 +95,7 @@ auth.onAuthStateChanged(user => {
 
 
         // Query
-        unsubscribe = thingsRef
+        saveDB = thingsRef
             .where('uid', '==', user.uid)
             .orderBy('createdAt') // Requires a query
             .onSnapshot(querySnapshot => {
@@ -100,7 +104,11 @@ auth.onAuthStateChanged(user => {
 
                 const items = querySnapshot.docs.map(doc => {
 
-                    return `<li>${doc.data().name},${doc.data().names},${doc.data().imie},${doc.data().country}</li>`
+                    return `<li>${doc.data().name},
+                    ${doc.data().names},
+                    ${doc.data().imie},
+                    ${doc.data().country}
+                    </li>`
 
                 });
 
@@ -111,17 +119,62 @@ auth.onAuthStateChanged(user => {
 
 
     } else {
-        // Unsubscribe when the user signs out
-        unsubscribe && unsubscribe();
+        // saveDB when the user signs out
+        saveDB && saveDB();
     }
 });
 
-var ractive = new Ractive({
-    el: '#container',
-    template: '#template',
-    data: {}
+
+
+
+  ///Zapis do RDB
+
+  const usersRef = database.ref('/users');
+  const userId = document.getElementById('userId');
+  const firstName = document.getElementById('firstName');
+  const lastName = document.getElementById('lastName');
+  const age = document.getElementById('age');
+  const addBtn = document.getElementById('addBtn');
+  const updateBtn = document.getElementById('updateBtn');
+  const removeBtn = document.getElementById('removeBtn');
+
+
+
+
+// Zapis do bazy
+
+addBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const autoId = usersRef.push().key
+  usersRef.child(userId.value).set({
+    first_name: firstName.value,
+    last_name: lastName.value,
+    age: age.value
   });
+});
+
+// Aktualizacja bazy
 
 
-  ///Zapis do DB zawodnikow
+updateBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const newData = {
+      first_name: firstName.value,
+      last_name: lastName.value,
+      age: age.value
+  };
+  const autoId = usersRef.push().key;
+  const updates = {};
+  updates['/users/' + userId.value] = newData;
+  updates['/super-users/' + userId.value] = newData;
+  database.ref().update(updates);
+});
 
+// Usunac dane
+
+removeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    usersRef.child(userId.value).remove()
+    .then(()=> { console.log('User Deleted !'); })
+    .catch(error => { console.error(error); });
+});
